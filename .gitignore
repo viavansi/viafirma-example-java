@@ -1,0 +1,17 @@
+# Eclipse files
+.classpath
+.project
+.settings/
+.tern-project
+
+# Compiled files
+/*/*/classes
+*.class
+
+# Mac files
+.DS_Store
+
+# Maven files
+log/
+target/
+/bin/
