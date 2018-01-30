@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		/* Desarrollado por VIAVANSI ( Servicios Avanzados para las
+		Instituciones S.L. ) 2008 Se permite la libre distribución y
+		modificación de esta librería bajo los términos de la licencia GPL
+		siempre que se indique de forma clara la autoría de Servicios
+		Avanzados para las Instituciones S.L. (VIAVANSI). Para usos
+		comerciales de este software contacte con info@viavansi.com. This
+		library is free software; you can redistribute it and/or modify it
+		under the terms of the GPL GNU General Public License as published by
+		the Free Software Foundation; either version 2 of the License, or (at
+		your option) any later version. This library is distributed in the
+		hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+		the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+		PURPOSE. See the GNU General Public License for more details. For any
+		commercial use of this software contact info@viavansi.com.
+		********************************************************************
+		Encoding: UTF-8 Cadena de comprobación de encoding: 'El veloz
+		murciélago hindú comía feliz cardillo y kiwi.' 'La cigüeña tocaba el
+		saxofón detrás del palenque de paja.' */
+	-->
+<!-- Aplicación de ejemplo pava Viafirma-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.viavansi.examples</groupId>
+	<artifactId>viafirma-platform-example-java</artifactId>
+	<packaging>war</packaging>
+	<version>3.0.0</version>
+	<name>ejemploViafirma</name>
+	<url>http://www.viavansi.com</url>
+	<inceptionYear>2008</inceptionYear>
+	
+	<properties>
+		<viafirmaClientVersion>2.14.3</viafirmaClientVersion>
+	</properties>
+	
+	<organization>
+		<name>Servicios Avanzados para las Instituciones S.L. (VIAVANSI) 
+		</name>
+		<url>http://www.viavansi.com</url>
+	</organization>
+	<!--
+		********************************** Dependencias del proyecto
+		**********************************
+	-->
+	<dependencies>
+	
+		 <!-- Superior a java 1.4 [2.9.0, 2.9.99) -->
+		 <dependency>
+			<groupId>org.viafirma</groupId>
+			<artifactId>viafirma-client</artifactId>
+            <version>${viafirmaClientVersion}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+    		<artifactId>bcmail-jdk15on</artifactId>
+    		<version>1.55</version>
+		</dependency>
+
+		<!-- Dependencias JEE -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Soporte para WS (en servidores no JEE 5/6)-->
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.1.4</version>
+			<!-- 
+				Debido a que la versión publicada en repo1.maven.org contiene un
+				error de empaquetado que hace que solo funcione con Java 6
+			 -->
+			<exclusions>
+				<exclusion>
+					<artifactId>jaxws-api</artifactId>
+					<groupId>javax.xml.ws</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>bcprov-jdk15</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<artifactId>jaxws-api</artifactId>
+			<groupId>javax.xml.ws</groupId>
+			<version>2.1-1</version>
+			<exclusions>
+				<!-- 
+					La versión requerida no se encuentra el los repositorios públicos
+				 -->
+				<exclusion>
+					<groupId>javax.jws</groupId>
+					<artifactId>jsr181</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+		<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+
+	</dependencies>
+
+
+
+	<!--
+		********************************** Plugins para la compilación,
+		empaquetado y distribución **********************************
+	-->
+	<build>
+		<finalName>ejemploViafirma</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<wtpversion>1.5</wtpversion>
+					<!--<downloadSources>true</downloadSources>-->
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				<source>1.5</source>
+					<target>1.7</target>
+					<!-- <source>1.4</source>
+					<target>1.4</target>-->
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!--  Plugins para la configuración del context.xml -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<resource><!-- custom context.xml -->
+							<directory>src/main/conf/custom </directory>
+							<filtering>true</filtering>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+			<!-- configuración para el empaquetado del proyecto -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>
+							src/main/assembly/src.xml
+						</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>			
+		</plugins>
+	</build>
+	<!--
+		********************************** Dependencias a los repositorios de
+		Viavansi. Nota: Se recomienda utilizar estos repositorio para asegurar
+		la correcta compilación del proyecto.
+		**********************************
+	-->
+	<repositories>
+		<repository>
+			<id>Viavansi</id>
+			<name>Viavansi Repositorio</name>
+			<url>http://repositorio.viavansi.com/repo</url>
+			<releases>
+			</releases>
+		</repository>
+	</repositories>
+</project>

@@ -1,0 +1,44 @@
+body {
+	background: #004085;
+	font-family: Arial, sans-serif;
+}
+
+html>body {
+	font-size: 14px;
+}
+
+a {
+	color: #004085;
+}
+
+#ayuda, hr, #cabecera p {
+	display: none;
+}
+
+#cabecera h1 {
+	background: url(images/layout/logo.png) no-repeat 0 0;
+	height: 80px;
+	margin: 1em auto;
+	width: 271px;
+}
+
+	#cabecera h1 a {
+		display: block;
+		height: 100%;
+		text-indent: -999em;
+		width: 100%;
+	}
+
+#global {
+	margin: 0 auto;
+	width: 700px;
+}
+
+#contenido {
+	background: #fff;
+	padding: 1em 2em;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

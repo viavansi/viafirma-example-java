@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zzconprueba:prueba id="test" xmlns:zzconprueba="http://prueba" >
+	<zzconprueba:prueba212 Id="N1">Esto es el contenido del xml de prueba</zzconprueba:prueba212>
+</zzconprueba:prueba>

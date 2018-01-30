@@ -1,0 +1,91 @@
+/* ----------------------------------------------------------
+	Hoja de estilos global de la Aplicacion
+
+	Desarrollado por Servicios Avanzados para las Instituciones S.L. (VIAVANSI) 2008
+	Contacto: comercial@viavansi.com
+	http://www.viavansi.com	
+	
+	Encoding:	UTF-8
+	Autor:		Juan G. Hurtado
+	e-Mail:		jghurtado@viavansi.es
+------------------------------------------------------------- */
+
+label {
+	display: block;
+}
+
+body {
+	background: #004085;
+	font-family: Arial, sans-serif;
+}
+
+a {
+	color: #004085;
+}
+
+html>body {
+	font-size: 14px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 700px;
+}
+
+#content {
+	background: #fff;
+	padding: 1em 2em;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+h1 {
+	background: url(../images/layout/logo.png) no-repeat 0 0;
+	height: 80px;
+	margin: 1em auto;
+	text-indent: -999em;
+	width: 271px;
+}
+
+h2 {
+	color: #de6f00;
+	font-size: 1.2em;
+}
+
+.box {
+	background: #f7f7f7;
+	border: 1px solid #e5e5e5;
+	padding: 1em 2em;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+label {
+	margin-bottom: 0.5em;
+}
+
+.buttons {
+	text-align: center;
+}
+
+input.button {
+	background: #004085;
+	border: 1px solid #012a57;
+	color: #fff;
+	font-size: 1.2em;
+	padding: 0.5em 2em;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+input.button:focus, input.button:hover {
+	background-color: #2465AA;
+	color: #fff;
+}

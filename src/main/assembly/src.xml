@@ -1,0 +1,33 @@
+<assembly xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/assembly-1.0.0.xsd">
+	<id>Kit_${pom.properties.viafirmaClientVersion}</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+		<fileSets>
+		<fileSet>
+			<excludes>
+				<exclude>target/</exclude>
+			</excludes>
+			<outputDirectory>/sources</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>target/ejemploViafirma/WEB-INF/lib</directory>
+			<outputDirectory>/dependencias</outputDirectory>
+		</fileSet>
+		</fileSets>
+	<files>
+		<file>
+			<source>src/main/assembly/README_ASSEMBLY.txt</source>
+			<destName>README.txt</destName>
+			<outputDirectory>/</outputDirectory>
+			<filtered>true</filtered>			
+		</file>
+		<file>
+			<source>target/ejemploViafirma.war</source>
+			<outputDirectory>/</outputDirectory>
+		</file>
+	</files>
+</assembly>
