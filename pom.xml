@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<!--
-		/* Desarrollado por VIAVANSI ( Servicios Avanzados para las
-		Instituciones S.L. ) 2008 Se permite la libre distribución y
-		modificación de esta librería bajo los términos de la licencia GPL
-		siempre que se indique de forma clara la autoría de Servicios
-		Avanzados para las Instituciones S.L. (VIAVANSI). Para usos
-		comerciales de este software contacte con info@viavansi.com. This
-		library is free software; you can redistribute it and/or modify it
-		under the terms of the GPL GNU General Public License as published by
-		the Free Software Foundation; either version 2 of the License, or (at
-		your option) any later version. This library is distributed in the
-		hope that it will be useful, but WITHOUT ANY WARRANTY; without even
-		the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-		PURPOSE. See the GNU General Public License for more details. For any
-		commercial use of this software contact info@viavansi.com.
-		********************************************************************
-		Encoding: UTF-8 Cadena de comprobación de encoding: 'El veloz
-		murciélago hindú comía feliz cardillo y kiwi.' 'La cigüeña tocaba el
-		saxofón detrás del palenque de paja.' */
-	-->
+
 <!-- Aplicación de ejemplo pava Viafirma-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/maven-v4_0_0.xsd">
@@ -28,21 +9,19 @@
 	<packaging>war</packaging>
 	<version>3.0.0</version>
 	<name>ejemploViafirma</name>
-	<url>http://www.viavansi.com</url>
-	<inceptionYear>2008</inceptionYear>
+	<url>https://www.viafirma.com/</url>
+	<inceptionYear>2018</inceptionYear>
 	
 	<properties>
 		<viafirmaClientVersion>2.14.3</viafirmaClientVersion>
 	</properties>
 	
 	<organization>
-		<name>Servicios Avanzados para las Instituciones S.L. (VIAVANSI) 
-		</name>
-		<url>http://www.viavansi.com</url>
+		<name>Viafirma</name>
+		<url>https://www.viafirma.com/</url>
 	</organization>
 	<!--
-		********************************** Dependencias del proyecto
-		**********************************
+		********************************** Dependencias del proyecto **********************************
 	-->
 	<dependencies>
 	

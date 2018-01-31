@@ -160,10 +160,10 @@
 			</div>
 			<div id="footer">
 				<p class="left">
-					Acceda a <a href="http://www.viafirma.com">Viafirma</a> o consulte más información técnica en <a href="http://developers.viafirma.com/">Viafirma Developers</a> 
+					Acceda a <a href="http://www.viafirma.com">Viafirma</a> o consulte más información técnica en <a href="https://doc.viafirma.com/viafirma-platform/integration/">Manual de integración de viafirma platform</a> 
 				</p>
 				<p>
-					<a href="../../apiExamples/">Listado de métodos</a> - <small>Version 0.6</small>
+					<small>Version 0.6</small>
 				</p>
 			</div>
 		</div>

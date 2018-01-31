@@ -1,37 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!--
-/* Desarrollado por VIAVANSI ( Servicios Avanzados para las Instituciones S.L. ) 2008
-  
-   Se permite la libre distribución y modificación de esta librería bajo los 
-   términos de la licencia GPL siempre que se indique de forma clara
-   la autoría de Servicios Avanzados para las Instituciones S.L. (VIAVANSI).
-   Para usos comerciales de este software contacte con info@viavansi.com.
-   
-   This library is free software; you can redistribute it and/or
-   modify it under the terms of the GPL GNU General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
-  
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   General Public License for more details.
- 
-   For any commercial use of this software contact info@viavansi.com.
-
-   ********************************************************************
-   Encoding: ASCII
-*/
--->	
+	
 <!-- NOTA: Fichero sin Tildes ni caracteres no ASCII( para evitar errores en el servidor ) -->
 <web-app id="ejemploViafirma2" version="2.4"
 	xmlns="http://java.sun.com/xml/ns/j2ee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-	<display-name>ejemploViafirma_1</display-name>
+	<display-name>ejemploViafirma</display-name>
 	<description>
-	   ejemploViafirma2 Copyright (C) 2007 - 2008  Viavansi Servicios Avanzados para las Instituciones S.L. (VIAVANSI)
+	   Ejemplo de uso de la SDK de Java para viafirma platform
 	</description>
 	
 	<error-page>
@@ -49,7 +26,7 @@
 
 	<servlet>
 		<servlet-name>ViafirmaClientResponseServlet</servlet-name>
-		<servlet-class>com.viavansi.examples.ViafirmaClientResponseServlet</servlet-class>
+		<servlet-class>com.viafirma.examples.ViafirmaClientResponseServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
@@ -78,7 +55,7 @@
         </description>
         <filter-name>LoginFilter</filter-name>
        	<filter-class>
-          		 com.viavansi.examples.AutenticateFilter
+          		 com.viafirma.examples.AutenticateFilter
         </filter-class>
     </filter> 
     
@@ -99,7 +76,7 @@
 	    </description>
 	    <filter-name>FirmaFilter</filter-name>
 	    <filter-class>
-	    	com.viavansi.examples.FirmaFilter
+	    	com.viafirma.examples.FirmaFilter
 	    </filter-class>
 	</filter>
     

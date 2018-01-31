@@ -116,7 +116,7 @@
 						href="http://developers.viafirma.com/">Viafirma Developers</a>
 				</p>
 				<p>
-					<a href="../apiExamples/">Listado de métodos</a> - <small>2.14.1</small>
+					<small>3.0.0</small>
 				</p>
 			</div>
 		</div>

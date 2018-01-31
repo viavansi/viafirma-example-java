@@ -5,7 +5,7 @@
  * http://www.serviciosavanzados.es
  * http://www.viavansi.com
  */
-package com.viavansi.examples;
+package com.viafirma.examples;
 
 import java.io.IOException;
 

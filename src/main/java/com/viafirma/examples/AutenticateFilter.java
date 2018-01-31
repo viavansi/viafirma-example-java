@@ -1,4 +1,4 @@
-package com.viavansi.examples;
+package com.viafirma.examples;
 
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
