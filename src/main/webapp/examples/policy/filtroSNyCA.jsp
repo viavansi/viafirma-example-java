@@ -1,4 +1,5 @@
 <%-- <%@page import="org.viafirma.cliente.util.PolicyParams"%> --%>
+<%@page import="org.viafirma.cliente.util.OptionalRequest"%>
 <%@page import="org.viafirma.cliente.firma.Policy"%>
 <%@page import="org.viafirma.cliente.firma.TypeSign"%>
 <%@page import="org.viafirma.cliente.util.PolicyParams"%>
@@ -63,6 +64,9 @@
 										byte[] logoStamp = IOUtils.toByteArray(getClass().getResourceAsStream("/stamperWatermark.png"));
 										//Creamos el documento
 										Documento doc = new Documento("exampleSign.pdf",datosAFirmar,TypeFile.PDF,TypeFormatSign.PAdES_BASIC);
+										
+										//Este parámetro indica que se seleccione automáticamente un certificado si solo hay uno en la lista
+										viafirmaClient.addOptionalRequest(OptionalRequest.AUTO_SEND);
 										
 										//Seteamos la politica
 										Policy policy = new Policy();
