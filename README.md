@@ -10,7 +10,7 @@ Desde el siguiente enlace accederás a documentación detallada la cual te será
 
 ## Instalación del ejemplo de viafirma platform en un entorno local
 
-Para la instalación y despliegue del ejemplo de viafirma platform, es recomendable tener instalado alguna erramienta tipo IDE e importar el proyecto del ejemplo como maven.
+Para la instalación y despliegue del ejemplo de viafirma platform, es recomendable tener instalado alguna herramienta tipo IDE e importar el proyecto del ejemplo como maven.
 
 También, con la propia herramienta de maven, se puede generar un empaquetado .war que puede ser desplegado desde un contenedor de aplicaciones compatible.
 
