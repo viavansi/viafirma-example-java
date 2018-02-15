@@ -51,7 +51,8 @@
 									    // 2.- Files to be signed, in a list of OperationFile (base64 and filename) - mandatory
 									    // 3.- Policy object - mandatory
 									    AuthOperationRequest authRequest = new AuthOperationRequest();
-									    //authRequest.setAutoSend(true);
+									    // For instance...
+									    authRequest.setAutoSend(true);
 									    
 									    // Policy (mandatory)
 									    Policy policy = new Policy();
