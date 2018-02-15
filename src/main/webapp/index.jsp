@@ -18,10 +18,10 @@
 				
 				<p class="message">La aplicación de ejemplo está actualmente configurada para utilizar:<br/>
 		
-				URL Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServer() %></strong><br/>
-				URL WS Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServerWS() %></strong><br/>
-				API Key:<strong><%=ConfigureUtil.getApiKey() %></strong><br/>
-				API Pass:<strong><%=ConfigureUtil.getApiPass() %></strong><br/>
+				URL Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServer() %></strong></li><br/>
+				URL WS Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServerWS() %></strong></li><br/>
+				API Key:<strong><%=ConfigureUtil.getApiKey() %></strong></li><br/>
+				API Pass:<strong><%=ConfigureUtil.getApiPass() %></strong></li><br/>
 				<a href="changeServer.jsp">Administrar ejemplo</a>
 				
 				</p>
@@ -36,8 +36,7 @@
 							<div class="box-content">
 								<ul>
 									<li><a href="examples/exampleAuthenticationPolicy.jsp" >Autenticar al usuario</a></li>
-								    <li><a href="exampleFilter/exampleAuthentication.jsp" >Autenticar al usuario controlado por filtro </a></li>
-                                    <li><a href="examples/exampleAuthenticationJavascript.jsp" >Autenticar al usuario usando el cliente Javascript</a></li>
+									<li><a href="exampleFilter/exampleAuthentication.jsp" >Autenticar al usuario controlado por filtro </a></li>
 								</ul>
 							</div>
 						</div>
