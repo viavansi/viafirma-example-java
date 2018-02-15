@@ -37,7 +37,7 @@
 								<ul>
 									<li><a href="examples/exampleAuthenticationPolicy.jsp" >Autenticar al usuario</a></li>
 								    <li><a href="exampleFilter/exampleAuthentication.jsp" >Autenticar al usuario controlado por filtro </a></li>
-                                    <li><a href="examples/exampleAuthenticationViafirmaDesktop.jsp" >Autenticar al usuario invocando a Viafirma Desktop por protocolo</a></li>
+                                    <li><a href="examples/exampleAuthenticationJavascript.jsp" >Autenticar al usuario usando el cliente Javascript</a></li>
 								</ul>
 							</div>
 						</div>
@@ -51,7 +51,6 @@
 								<ul>
 									<li><a href="examples/firmaUsuario.jsp" >Firmar documento con intervención del usuario</a></li>
 									<li><a href="examples/firmaServer.jsp" >Firmar documento sin intervención del usuario</a></li>
-									<li><a href="examples/exampleSignatureViafirmaDesktop.jsp" >Firmar invocando a Viafirma Desktop por protocolo</a></li>
 									<li><a href="examples/firmaPolicy.jsp" >Otros ejemplos de firmas</a></li>
 								</ul>
 							</div>

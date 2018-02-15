@@ -1,5 +1,3 @@
-<%@page import="org.viafirma.cliente.vo.DirectDesktopInvocation"%>
-<%@page import="org.viafirma.cliente.rest.desktop.direct.model.AuthOperationRequest"%>
 <%@page import="org.viafirma.cliente.util.PolicyParams"%>
 <%@page import="org.viafirma.cliente.firma.Policy"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -22,51 +20,30 @@
 			<h1 id="header"><a href=".."><img src="../images/content/logo.png" alt="Viafirma" /></a></h1>
 			
 			<div id="content">
-				<h2>Autenticar al usuario usando llamada a Viafirma Desktop por protocolo (requiere Javascript)</h2>
+				<h2>Autenticar al usuario usando el cliente Javascript</h2>
 				
 				<div class="group">
 					<div class="col width-63 append-02">
 						<div class="box">
 							<h3 class="box-title">Autenticación del usuario con Viafirma</h3>
 							<div class="box-content">
-								<p>En este ejemplo se realiza la autenticación del usuario utilizando Javascript para la invocación a Viafirma Desktop por protocolo. Requiere código Javascript local.</p>
+								<p>En este ejemplo se realiza la autenticación del usuario utilizando el cliente Javascript con la intervención directa del usuario.</p>
 						
 								<%
-									
 									if (request.getParameter("autenticar") != null) {
-									 	// This is just a sample; your app would start with something like this:
-										ConfigureUtil.initViafirmaClient();										
-										ViafirmaClient viafirmaClient = ViafirmaClientFactory.getInstance();
-										
-									    // Now use the new prepareAuthForDirectDesktop method
-									    AuthOperationRequest authRequest = new AuthOperationRequest();
-									    //authRequest.setAutoSend(true);
-									    
-									    // The method returns an object with the information required to:
-									    // a) Create a button that opens Viafirma Desktop by protocol
-									    // b) Gets the just-prepared operation ID to start polling using Javascriot
-									    DirectDesktopInvocation directCall = viafirmaClient.prepareAuthForDirectDesktop(authRequest);
-									    String operationId = directCall.getOperationId();
-									    String viafirmaDesktopLink = directCall.getViafirmaDesktopInvocationLink();
 							    %>
-							    
-                                <script src="<%=ConfigureUtil.getViafirmaServer() %>/viafirma.js">
-                             		// Include this remote Javascript is mandatory, it includes the polling logic
-                                </script>
+                                <script src="<%=ConfigureUtil.getViafirmaServer() %>/viafirma.js"></script>
                                 <script>
-                                // Customize this in your own client webapp... this is just a sample!
-                                // When the polling detects an error, it invokes this function
                                 function showError(response) {
                                 	   document.getElementById("loading").style = "display: none;";
                                 	   document.getElementById("authError").innerHTML = "Ocurrió un problema durante la autenticación: "+ JSON.stringify(response);
                                 }
-                             	// If the user cancels the operation in Viafirma Desktop app, this function is invoked
+                                
                                 function showCancel(response) {
                                 	   document.getElementById("loading").style = "display: none;";
                                 	   document.getElementById("authCancel").innerHTML = "La autenticación fue cancelada: "+ JSON.stringify(response);
                                 }
-                             	// If the authentication runs ok, this function is invoked - customize it with your own logic 
-                             	// For instance, probably you will need to invoke an internal REST service that receives the authentication response object
+                                
                                 function showSuccess(response) {
                                 	   document.getElementById("loading").style = "display: none;";
                                     
@@ -77,7 +54,7 @@
                                     	   "<li><strong>CA</strong>: "+ response.shortCa +"</li>"+
                                     	    "</ul>";
                                 }
-                                // Here we initialize the viafirma.js polling 
+                                
                                 function initAuth() {
                                 	   document.getElementById("authButton").style = "display: none;";
                                 	   document.getElementById("loading").innerHTML = "<img src='../images/icons/ajax-loader.gif' />";
@@ -87,8 +64,7 @@
                                 	   // - if the operation is cancelled, "cancelCallback" will be called
                                 	   // - if the operation is completed: "successCallback" will be called
                                 	   viafirma.init({
-                                		   // Here we include 
-                                		   operationId: "<%=operationId%>",
+                                		   operationId: "1518614616080JZOZ4JRB",
                                 		   viafirmaUrl: "<%=ConfigureUtil.getViafirmaServer() %>/",
                                 		   errorCallback: function(response) {
                                 			   showError(response);
@@ -107,13 +83,13 @@
                                 <p id="authSuccess"></p>
                                 <p id="loading"></p>
                                 <p id="authButton">
-                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma</a>
+                                    <a class="button" href="#" onclick="initAuth();">Autenticar con Viafirma</a>
                                 </p>
                                 <%  		
 									} else {
 								%>
                                 <p>
-                                    <a class="button" href="?autenticar=true">Iniciar ejemplo de proceso de autenticación</a>
+                                    <a class="button" href="?autenticar=true">Iniciar proceso de autenticación</a>
                                 </p>
                                 <%                           
                                     }
@@ -128,8 +104,7 @@
 							
 							<div class="box-content">
 								<ul>
-									<li><code>prepareAuthForDirectDesktop</code></li>
-									<li><code>javascript: viafirma.init()</code></li>									
+									<li><code>viafirma.init()</code></li>
 								</ul>
 							</div>
 						</div>
