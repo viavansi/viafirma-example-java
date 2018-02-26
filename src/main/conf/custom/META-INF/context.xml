@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Context docBase="ejemploViafirma.war" path="/ejemploViafirma" reloadable="false" >
+
+		<Environment
+			description="Configuracion del Cliente de viafirma, los datos siguen la siguiente estructura:URL_VIAFIRMA;URL_VIAFIRMA_WS;API_KEY;API_PASS"
+			name="CONFIG_VIAFIRMA_CLIENT" override="false" type="java.lang.String"
+			value="https://testservices.viafirma.com/viafirma;https://testservices.viafirma.com/viafirma;xnoccio;12345" />
+
+
+</Context>
