@@ -37,7 +37,7 @@
 								<ul>
 									<li><a href="examples/exampleAuthenticationPolicy.jsp" >Autenticar al usuario</a></li>
 								    <li><a href="exampleFilter/exampleAuthentication.jsp" >Autenticar al usuario controlado por filtro </a></li>
-                                    <li><a href="examples/exampleAuthenticationViafirmaDesktop.jsp" >Autenticar al usuario invocando a Viafirma Desktop por protocolo</a></li>
+                                    <li><a href="examples/exampleAuthenticationViafirmaDesktop.jsp?autenticar=true" >Autenticar al usuario invocando a Viafirma Desktop por protocolo</a></li>
 								</ul>
 							</div>
 						</div>

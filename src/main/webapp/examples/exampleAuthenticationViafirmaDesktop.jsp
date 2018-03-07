@@ -1,3 +1,8 @@
+<%@page import="org.viafirma.cliente.util.OptionalRequest"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.viafirma.cliente.rest.desktop.direct.model.FilterOperator"%>
+<%@page import="org.viafirma.cliente.rest.desktop.direct.model.CertFilter"%>
 <%@page import="org.viafirma.cliente.vo.DirectDesktopInvocation"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.AuthOperationRequest"%>
 <%@page import="org.viafirma.cliente.util.PolicyParams"%>
@@ -41,6 +46,17 @@
 									    // Now use the new prepareAuthForDirectDesktop method
 									    AuthOperationRequest authRequest = new AuthOperationRequest();
 									    //authRequest.setAutoSend(true);
+									    CertFilter certFilter = new CertFilter();
+									    List<String> filterValueList = new ArrayList<String>();
+									    filterValueList.add("AVANSI");
+									    filterValueList.add("FNMT");
+									    
+									    
+									    certFilter.setOperator(FilterOperator.contains);
+									    certFilter.setFilterValues(filterValueList);
+									    
+									    authRequest.setCertFilter(certFilter);
+									    authRequest.setAutoSend(true);
 									    
 									    // The method returns an object with the information required to:
 									    // a) Create a button that opens Viafirma Desktop by protocol
@@ -57,18 +73,18 @@
                                 // Customize this in your own client webapp... this is just a sample!
                                 // When the polling detects an error, it invokes this function
                                 function showError(response) {
-                                	   document.getElementById("loading").style = "display: none;";
-                                	   document.getElementById("authError").innerHTML = "Ocurrió un problema durante la autenticación: "+ JSON.stringify(response);
+                                	document.getElementById("loading").innerHTML = "";
+                                	document.getElementById("authError").innerHTML = "Ocurrió un problema durante la autenticación: "+ JSON.stringify(response);
                                 }
                              	// If the user cancels the operation in Viafirma Desktop app, this function is invoked
                                 function showCancel(response) {
-                                	   document.getElementById("loading").style = "display: none;";
-                                	   document.getElementById("authCancel").innerHTML = "La autenticación fue cancelada: "+ JSON.stringify(response);
+                                	document.getElementById("loading").innerHTML = "";
+                                	document.getElementById("authCancel").innerHTML = "La autenticación fue cancelada: "+ JSON.stringify(response);
                                 }
                              	// If the authentication runs ok, this function is invoked - customize it with your own logic 
                              	// For instance, probably you will need to invoke an internal REST service that receives the authentication response object
                                 function showSuccess(response) {
-                                	   document.getElementById("loading").style = "display: none;";
+                                	document.getElementById("loading").innerHTML = "";
                                     
                                     document.getElementById("authSuccess").innerHTML = "<p>Operación de autenticación realizada con éxito. Información obtenida:</p><ul>"+
                                     	   "<li><strong>ID de operación</strong>: "+ response.operationId +"</li>"+
