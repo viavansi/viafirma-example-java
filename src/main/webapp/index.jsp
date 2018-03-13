@@ -18,10 +18,10 @@
 				
 				<p class="message">La aplicación de ejemplo está actualmente configurada para utilizar:<br/>
 		
-				URL Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServer() %></strong></li><br/>
-				URL WS Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServerWS() %></strong></li><br/>
-				API Key:<strong><%=ConfigureUtil.getApiKey() %></strong></li><br/>
-				API Pass:<strong><%=ConfigureUtil.getApiPass() %></strong></li><br/>
+				URL Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServer() %></strong><br/>
+				URL WS Viafirma Platform:<strong><%=ConfigureUtil.getViafirmaServerWS() %></strong><br/>
+				API Key:<strong><%=ConfigureUtil.getApiKey() %></strong><br/>
+				API Pass:<strong><%=ConfigureUtil.getApiPass() %></strong><br/>
 				<a href="changeServer.jsp">Administrar ejemplo</a>
 				
 				</p>
@@ -36,7 +36,8 @@
 							<div class="box-content">
 								<ul>
 									<li><a href="examples/exampleAuthenticationPolicy.jsp" >Autenticar al usuario</a></li>
-									<li><a href="exampleFilter/exampleAuthentication.jsp" >Autenticar al usuario controlado por filtro </a></li>
+								    <li><a href="exampleFilter/exampleAuthentication.jsp" >Autenticar al usuario controlado por filtro </a></li>
+                                    <li><a href="examples/exampleAuthenticationViafirmaDesktop.jsp" >Autenticar al usuario invocando a Viafirma Desktop por protocolo</a></li>
 								</ul>
 							</div>
 						</div>
@@ -50,6 +51,7 @@
 								<ul>
 									<li><a href="examples/firmaUsuario.jsp" >Firmar documento con intervención del usuario</a></li>
 									<li><a href="examples/firmaServer.jsp" >Firmar documento sin intervención del usuario</a></li>
+									<li><a href="examples/exampleSignatureViafirmaDesktop.jsp" >Firmar invocando a Viafirma Desktop por protocolo</a></li>
 									<li><a href="examples/firmaPolicy.jsp" >Otros ejemplos de firmas</a></li>
 								</ul>
 							</div>
