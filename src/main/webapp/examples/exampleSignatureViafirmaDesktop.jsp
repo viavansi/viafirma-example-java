@@ -1,3 +1,4 @@
+<%@page import="org.viafirma.cliente.rest.desktop.direct.model.SignatureOperationRequest"%>
 <%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="org.apache.commons.io.IOUtils"%>
 <%@page import="java.util.LinkedList"%>
@@ -50,9 +51,9 @@
 									    // 1.- An AuthOperationRequest object (includes logic to filter certificates, autosend, etc.) - optional (can be null)
 									    // 2.- Files to be signed, in a list of OperationFile (base64 and filename) - mandatory
 									    // 3.- Policy object - mandatory
-									    AuthOperationRequest authRequest = new AuthOperationRequest();
+									    SignatureOperationRequest signRequest = new SignatureOperationRequest();
 									    // For instance...
-									    authRequest.setAutoSend(true);
+									    signRequest.setAutoSend(true);
 									    
 									    // Policy (mandatory)
 									    Policy policy = new Policy();
@@ -67,12 +68,20 @@
 										OperationFile file = new OperationFile();
 										file.setFilename("exampleSign.pdf");
 										file.setBase64Content(Base64.encodeBase64String(documentBinaryContent));
+										
+										files.add(file);
+										
+										documentBinaryContent = IOUtils.toByteArray(getClass().getResourceAsStream("/exampleSigned.pdf"));
+										file = new OperationFile();
+										file.setFilename("exampleSigned.pdf");
+										file.setBase64Content(Base64.encodeBase64String(documentBinaryContent));
+										
 										files.add(file);
 									    
 									    // The method returns an object with the information required to:
 									    // a) Create a button that opens Viafirma Desktop by protocol
 									    // b) Gets the just-prepared operation ID to start polling using Javascriot
-									    DirectDesktopInvocation directCall = viafirmaClient.prepareSignatureForDirectDesktop(authRequest, files, policy, request);
+									    DirectDesktopInvocation directCall = viafirmaClient.prepareSignatureForDirectDesktop(signRequest, files, policy, request);
 									    String operationId = directCall.getOperationId();
 									    String viafirmaDesktopLink = directCall.getViafirmaDesktopInvocationLink();
 							    %>
@@ -99,9 +108,10 @@
                                     
                                     document.getElementById("signatureSuccess").innerHTML = "<p>Operación de firma realizada con éxito. Información obtenida:</p><ul>"+
                                     	   "<li><strong>ID de operación</strong>: "+ response.operationId +"</li>"+
-                                    	   "<li><strong>Identificación usuario</strong>: "+ response.numberUserId +"</li>"+
-                                    	   "<li><strong>Usuario</strong>: "+ response.name +" "+ response.surname1 +" "+ response.surname2 +"</li>"+
-                                    	   "<li><strong>CA</strong>: "+ response.shortCa +"</li>"+
+                                    	   "<li><strong>Identificación usuario</strong>: "+ response.certificateValidationData.numberUserId +"</li>"+
+                                    	   "<li><strong>Usuario</strong>: "+ response.certificateValidationData.name +" "+ response.certificateValidationData.surname1 +" "+ response.certificateValidationData.surname2 +"</li>"+
+                                    	   "<li><strong>CA</strong>: "+ response.certificateValidationData.shortCa +"</li>"+
+                                    	   "<li><strong>ID Firma</strong>: "+ response.signatureId +"</li>"+
                                     	    "</ul>";
                                 }
                                 // Here we initialize the viafirma.js polling 
@@ -136,7 +146,7 @@
                                 <p id="signatureButton">
                                     <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initSignature();">Firmar con Viafirma Desktop</a>
                                 </p>
-                                <%  		
+                                <%  
 									} else {
 								%>
                                 <p>
