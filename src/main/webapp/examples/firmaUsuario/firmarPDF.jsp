@@ -92,6 +92,8 @@
 		                                
 										policy.setTypeFormatSign(format);
 										policy.setTypeSign(typeSign);
+										
+										policy.addParameter(PolicyParams.SIGNATURE_ALGORITHM.getKey(), SignatureAlgorithm.SHA256withRSA.name());
 
 										Documento documento = new Documento("fimrado.pdf", datosAFirmar, typeFile, format);
 
