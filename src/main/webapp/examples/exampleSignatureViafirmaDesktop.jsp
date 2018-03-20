@@ -59,8 +59,13 @@
 									    Policy policy = new Policy();
 										policy.setTypeFormatSign(TypeFormatSign.PAdES_BASIC);
 										policy.setTypeSign(TypeSign.ATTACHED);
- 										policy.addParameter(PolicyParams.DIGITAL_SIGN_PAGE.getKey(), "1");
+										policy.addParameter(PolicyParams.DIGITAL_SIGN_PAGE.getKey(), "1");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_RECTANGLE.getKey(), new org.viafirma.cliente.vo.Rectangle(40,10,550,75));
+										policy.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_HIDE_STATUS.getKey(), "true");
+										policy.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_TYPE.getKey(), "QR-BAR-H");
+										policy.addParameter(PolicyParams.DIGITAL_SIGN_REASON.getKey(), "Example Sign");
+										policy.addParameter(PolicyParams.DIGITAL_SIGN_CONTACT.getKey(), "Contact Person Name");
+										policy.addParameter(PolicyParams.DIGITAL_SIGN_LOCATION.getKey(), "Tomares");
 										
 										// Files to be signed
 										byte[] documentBinaryContent = IOUtils.toByteArray(getClass().getResourceAsStream("/exampleSign.pdf"));	
