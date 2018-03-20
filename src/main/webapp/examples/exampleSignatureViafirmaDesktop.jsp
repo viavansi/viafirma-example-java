@@ -51,9 +51,9 @@
 									    // 1.- An AuthOperationRequest object (includes logic to filter certificates, autosend, etc.) - optional (can be null)
 									    // 2.- Files to be signed, in a list of OperationFile (base64 and filename) - mandatory
 									    // 3.- Policy object - mandatory
-									    SignatureOperationRequest signRequest = new SignatureOperationRequest();
+									    AuthOperationRequest authRequest = new AuthOperationRequest();
 									    // For instance...
-									    signRequest.setAutoSend(true);
+									    authRequest.setAutoSend(true);
 									    
 									    // Policy (mandatory)
 									    Policy policy = new Policy();
@@ -81,7 +81,7 @@
 									    // The method returns an object with the information required to:
 									    // a) Create a button that opens Viafirma Desktop by protocol
 									    // b) Gets the just-prepared operation ID to start polling using Javascriot
-									    DirectDesktopInvocation directCall = viafirmaClient.prepareSignatureForDirectDesktop(signRequest, files, policy, request);
+									    DirectDesktopInvocation directCall = viafirmaClient.prepareSignatureForDirectDesktop(authRequest, files, policy, request);
 									    String operationId = directCall.getOperationId();
 									    String viafirmaDesktopLink = directCall.getViafirmaDesktopInvocationLink();
 							    %>
