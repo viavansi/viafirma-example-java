@@ -75,6 +75,13 @@
 										file.setBase64Content(Base64.encodeBase64String(documentBinaryContent));
 										
 										files.add(file);
+										
+										documentBinaryContent = IOUtils.toByteArray(getClass().getResourceAsStream("/exampleSigned.pdf"));
+										file = new OperationFile();
+										file.setFilename("exampleSigned.pdf");
+										file.setBase64Content(Base64.encodeBase64String(documentBinaryContent));
+										
+										files.add(file);
 									    
 									    // The method returns an object with the information required to:
 									    // a) Create a button that opens Viafirma Desktop by protocol
