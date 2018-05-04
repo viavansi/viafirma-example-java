@@ -128,7 +128,7 @@
 						    	SignatureStatus signatureStatus = SignatureStatus.INVALID;
 					            for (SignatureVerification signatureVerification : signatureVerificationList) {
 					           		signatureStatus = signatureVerification.getSignatureStatus();
-					           		if(signatureStatus.equals(SignatureStatus.INDETERMINATE)){
+					           		if(SignatureStatus.INDETERMINATE.equals(signatureStatus) || SignatureStatus.INVALID.equals(signatureStatus)){
 					           		    break;
 					           		}
 					            }
@@ -150,7 +150,7 @@
 					<div class="box">
 						<h2 class="box-title">
 							Firma
-							<%=i + 1%>:
+							<%=i %>:
 							<%CertificateResponse certificateResponse = signatureVerification.getCertificateResponseList().get(0);%>
 							<%=certificateResponse.getNumberUserId() +" - "+signatureVerification.getSignatureStatus()%>
 							</h2>
@@ -201,7 +201,7 @@
 						</div>
 					</div>
 					<%
-					 		}
+					 		i++;}
 					    }
 					%>
 <!-- 					<p> -->
