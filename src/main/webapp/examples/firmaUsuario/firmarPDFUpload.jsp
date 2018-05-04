@@ -62,7 +62,7 @@
 								<%
 
 							    File file;
-							    int maxFileSize = 5000 * 1024;
+							    int maxFileSize = 25000 * 1024;
 							    int maxMemSize = 5000 * 1024;
 							    ServletContext context = pageContext.getServletContext();
 							    String filePath = context.getInitParameter("file-upload");
@@ -106,7 +106,7 @@
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_PAGE.getKey(), "0");
 		                                policy.addParameter(PolicyParams.DIGITAL_SIGN_RECTANGLE.getKey(), new org.viafirma.cliente.vo.Rectangle(40,10,550,75));
 		                                policy.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_HIDE_STATUS.getKey(), "true");
-		                                policy.addParameter(PolicyParams.DIGITAL_SIGN_REASON.getKey(), "cepto y firmo el trámite en Portafirmas TRAGSA");
+		                                policy.addParameter(PolicyParams.DIGITAL_SIGN_REASON.getKey(), "Acepto y firmo el trámite");
 		                                policy.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_TEXT.getKey(), "Firmado digitalmente por\n[CN]\nFecha: [vSignTimeKey(dd/MM/yyyy HH:mm:ss)]");
 										
 										
