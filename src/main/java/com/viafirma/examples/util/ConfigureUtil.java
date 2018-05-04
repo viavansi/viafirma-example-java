@@ -145,7 +145,7 @@ public class ConfigureUtil {
         if (MAX_SIZE_FILE != null) {
             Long maxSizeByte = Long.parseLong(MAX_SIZE_FILE);
             Long maxSizeMB = maxSizeByte * 1024l * 1024l;
-            properties.put(Constantes.PARAM_MAX_SIZE, maxSizeMB);
+            properties.put(Constantes.PARAM_MAX_SIZE, maxSizeMB.toString());
         }
         // properties.put(Constantes.PARAM_URL_APLICACION,
         // "http://192.168.10.114:6080/ejemploViafirma//");
