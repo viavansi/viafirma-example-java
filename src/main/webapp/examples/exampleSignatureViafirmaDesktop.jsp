@@ -73,13 +73,14 @@
 										OperationFile file = new OperationFile();
 										file.setFilename("exampleSign.pdf");
 										file.setBase64Content(Base64.encodeBase64String(documentBinaryContent));
+										file.setPolicy(policy);
 										
 										files.add(file);
 									    
 									    // The method returns an object with the information required to:
 									    // a) Create a button that opens Viafirma Desktop by protocol
 									    // b) Gets the just-prepared operation ID to start polling using Javascriot
-									    DirectDesktopInvocation directCall = viafirmaClient.prepareSignatureForDirectDesktop(authRequest, files, policy, request);
+									    DirectDesktopInvocation directCall = viafirmaClient.prepareSignatureForDirectDesktop(authRequest, files, request);
 									    String operationId = directCall.getOperationId();
 									    String viafirmaDesktopLink = directCall.getViafirmaDesktopInvocationLink();
 							    %>
