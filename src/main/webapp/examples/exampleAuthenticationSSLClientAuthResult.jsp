@@ -30,9 +30,7 @@
 			<h1 id="header"><a href=".."><img src="../images/content/logo.png" alt="Viafirma" /></a></h1>
 		<script type="text/javascript">
 			document.execCommand("ClearAuthenticationCache");
-			alert(window.crypto);
 			if(window.crypto) {
-				alert("crypto");
 				window.crypto.logout();
 			}
 		</script>
