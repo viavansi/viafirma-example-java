@@ -35,6 +35,7 @@
 										ViafirmaClient viafirmaClient = ViafirmaClientFactory.getInstance();
 										// Iniciamos la autenticación indicando la uri de retorno.
 										Policy policy=new Policy();
+										//policy.addParameter(PolicyParams.FILTER_GENERIC.getKey(), "{contains};FNMT");
 										viafirmaClient.authWithPolicy(policy, request, response,"/viafirmaClientResponseServlet");
 									}
 								%>

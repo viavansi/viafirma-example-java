@@ -45,16 +45,27 @@
 										
 									    // Now use the new prepareAuthForDirectDesktop method
 									    AuthOperationRequest authRequest = new AuthOperationRequest();
-									    //CertFilter certFilter = new CertFilter();
-									    //List<String> filterValueList = new ArrayList<String>();
-									    //filterValueList.add("AVANSI");
-									    //filterValueList.add("FNMT");
-
-									    //certFilter.setOperator(FilterOperator.contains);
-									    //certFilter.setFilterValues(filterValueList);
+									    
+									    //Examples with filters
+									    CertFilter certFilter = new CertFilter();
+									    List<String> filterValueList = new ArrayList<String>();
+									    filterValueList.add("FNMT");
+									    certFilter.setOperator(FilterOperator.contains);
+									    certFilter.setFilterValues(filterValueList);
+									    
+									    CertFilter caFilter = new CertFilter();
+									    caFilter.setOperator(FilterOperator.contains);
+									    caFilter.getFilterValues().add("FNMT");
+									    
+									    CertFilter numberUserIdFilter = new CertFilter();
+									    numberUserIdFilter.setOperator(FilterOperator.contains);
+									    numberUserIdFilter.getFilterValues().add("4");
 									    
 									    //authRequest.setCertFilter(certFilter);
-									    authRequest.setAutoSend(true);
+									    //authRequest.setCaFilter(caFilter);
+									    //authRequest.setNumberUserIdFilter(numberUserIdFilter);
+
+									    authRequest.setAutoSend(false);
 									    authRequest.setSessionId(request.getSession().getId());
 									    
 									    // The method returns an object with the information required to:

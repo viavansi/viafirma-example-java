@@ -1,3 +1,5 @@
+<%@page import="org.viafirma.cliente.rest.desktop.direct.model.FilterOperator"%>
+<%@page import="org.viafirma.cliente.rest.desktop.direct.model.CertFilter"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.SignatureOperationRequest"%>
 <%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="org.apache.commons.io.IOUtils"%>
@@ -53,7 +55,20 @@
 									    // 3.- Policy object - mandatory
 									    AuthOperationRequest authRequest = new AuthOperationRequest();
 									    // For instance...
-									    authRequest.setAutoSend(true);
+									    authRequest.setAutoSend(false);
+									    
+									    //  Some filters can be used here
+									    // CA filter and Serial Number / Serial Number ID requires Viafirma Desktop 1.6.7 at least
+									    CertFilter caFilter = new CertFilter();
+									    caFilter.setOperator(FilterOperator.contains);
+									    caFilter.getFilterValues().add("FNMT");
+									    
+									    CertFilter numberUserIdFilter = new CertFilter();
+									    numberUserIdFilter.setOperator(FilterOperator.contains);
+									    numberUserIdFilter.getFilterValues().add("4");
+									    
+									    //authRequest.setCaFilter(caFilter);
+									    //authRequest.setNumberUserIdFilter(numberUserIdFilter);
 									    
 									    // Policy (mandatory)
 									    Policy policy = new Policy();
