@@ -116,18 +116,16 @@
                                 	   document.getElementById("signatureCancel").innerHTML = "La firma fue cancelada: "+ JSON.stringify(response);
                                 }
                              	// If the signature operation runs ok, this function is invoked - customize it with your own logic 
-                             	// For instance, probably you will need to invoke an internal REST service that receives the signature response object
                                 function showSuccess(response) {
                                 	window.location.replace("./exampleSignatureViafirmaDesktopResult.jsp?operationId=" + response.operationId);
-//                                 	document.getElementById("loading").style = "display: none;";
+                                }
+                             	// If Viafirma Desktop is not loaded, this function is invoked
+                                function showUnloaded() {
+                             		alert("Viafirma Desktop no encontrado");
+                                 	document.getElementById("loading").style = "display: none;";
                                     
-//                                     document.getElementById("signatureSuccess").innerHTML = "<p>Operación de firma realizada con éxito. Información obtenida:</p><ul>"+
-//                                     	   "<li><strong>ID de operación</strong>: "+ response.operationId +"</li>"+
-//                                     	   "<li><strong>Identificación usuario</strong>: "+ response.certificateValidationData.numberUserId +"</li>"+
-//                                     	   "<li><strong>Usuario</strong>: "+ response.certificateValidationData.name +" "+ response.certificateValidationData.surname1 +" "+ response.certificateValidationData.surname2 +"</li>"+
-//                                     	   "<li><strong>CA</strong>: "+ response.certificateValidationData.shortCa +"</li>"+
-//                                     	   "<li><strong>ID Firma</strong>: "+ response.signatureId +"</li>"+
-//                                     	    "</ul>";
+                                  	document.getElementById("signatureSuccess").innerHTML = 
+                                	  "<p>Viafirma Desktop no ha sido cargado, aquí se puede incluir código para gestionar la instalación, instrucciones, etc.</p>";
                                 }
                                 // Here we initialize the viafirma.js polling 
                                 function initSignature() {
@@ -138,10 +136,12 @@
                                 	   // - if the operation fails, "errorCallback" will be called
                                 	   // - if the operation is cancelled, "cancelCallback" will be called
                                 	   // - if the operation is completed: "successCallback" will be called
+                                	   // - if Viafirma client is not loaded after unloadedTime seconds: "unloadedCallback" 
                                 	   viafirma.init({
                                 		   // Here we include 
                                 		   operationId: "<%=operationId%>",
                                 		   viafirmaUrl: "<%=ConfigureUtil.getViafirmaServer() %>/",
+                                		   unloadedTime: 5,
                                 		   errorCallback: function(response) {
                                 			   showError(response);
                                 		   },
@@ -150,6 +150,9 @@
                                 		   },
                                 		   cancelCallback: function(response) {
                                 			   showCancel(response);
+                                		   },
+                                		   unloadedCallback: function(response) {
+                                			   showUnloaded();
                                 		   }
                                 	   });
                                 }

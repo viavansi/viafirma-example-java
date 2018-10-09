@@ -77,7 +77,7 @@
 							    %>
 							    
                                 <script src="<%=ConfigureUtil.getViafirmaServer() %>/viafirma.js?t=<%=System.currentTimeMillis()%>">
-                             		// Include this remote Javascript is mandatory, it includes the polling logic
+                             		// Including this remote Javascript is mandatory, it includes the polling logic
                                 </script>
                                 <script>
                                 // Customize this in your own client webapp... this is just a sample!
@@ -92,19 +92,16 @@
                                 	document.getElementById("authCancel").innerHTML = "La autenticación fue cancelada: "+ JSON.stringify(response);
                                 }
                              	// If the authentication runs ok, this function is invoked - customize it with your own logic 
-                             	// You can pass the operationId to the server (maybe ciphered?) so the server can use viafirmaClient.getCertificateValidationResponse to get data
                                 function showSuccess(response) {
                                 	window.location.replace("./exampleAuthenticationViafirmaDesktopResult.jsp?operationId=" + response.operationId);
-                                	// This code shows operation data in screen... but it is just a sample. It would not be safe to invoke a service with this data,
-                                	// since (probably) any attacker could invoke the same service with fake data, being able to impersonate a 3rd user
-//                                 	document.getElementById("loading").innerHTML = "";
+                                }
+                             	// If Viafirma Desktop is not loaded, this function is invoked
+                                function showUnloaded() {
+                                	alert("Viafirma Desktop no encontrado");
+                                 	document.getElementById("loading").style = "display: none;";
                                     
-//                                     document.getElementById("authSuccess").innerHTML = "<p>Operación de autenticación realizada con éxito. Información obtenida:</p><ul>"+
-//                                     	   "<li><strong>ID de operación</strong>: "+ response.operationId +"</li>"+
-//                                     	   "<li><strong>Identificación usuario</strong>: "+ response.numberUserId +"</li>"+
-//                                     	   "<li><strong>Usuario</strong>: "+ response.name +" "+ response.surname1 +" "+ response.surname2 +"</li>"+
-//                                     	   "<li><strong>CA</strong>: "+ response.shortCa +"</li>"+
-//                                     	    "</ul>";
+                                  	document.getElementById("authSuccess").innerHTML = 
+                                	  "<p>Viafirma Desktop no ha sido cargado, aquí se puede incluir código para gestionar la instalación, instrucciones, etc.</p>";
                                 }
                                 // Here we initialize the viafirma.js polling 
                                 function initAuth() {
@@ -115,10 +112,12 @@
                                 	   // - if the operation fails, "errorCallback" will be called
                                 	   // - if the operation is cancelled, "cancelCallback" will be called
                                 	   // - if the operation is completed: "successCallback" will be called
+                                	   // - if Viafirma client is not loaded after unloadedTime seconds: "unloadedCallback" 
                                 	   viafirma.init({
                                 		   // Here we include 
                                 		   operationId: "<%=operationId%>",
                                 		   viafirmaUrl: "<%=ConfigureUtil.getViafirmaServer() %>/",
+                                		   unloadedTime: 5,
                                 		   errorCallback: function(response) {
                                 			   showError(response);
                                 		   },
@@ -127,6 +126,9 @@
                                 		   },
                                 		   cancelCallback: function(response) {
                                 			   showCancel(response);
+                                		   },
+                                		   unloadedCallback: function(response) {
+                                			   showUnloaded();
                                 		   }
                                 	   });
                                 }
