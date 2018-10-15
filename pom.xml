@@ -42,11 +42,11 @@
             </exclusions>
 		</dependency>
 		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.bouncycastle</groupId> -->
-<!--     		<artifactId>bcmail-jdk15on</artifactId> -->
-<!--     		<version>1.55</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+    		<artifactId>bcmail-jdk15on</artifactId>
+    		<version>1.55</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
