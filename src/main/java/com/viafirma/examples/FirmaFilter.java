@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.viafirma.cliente.filter.FirmaViafirmaFilter;
 import org.viafirma.cliente.vo.FicheroVO;
 import org.viafirma.cliente.vo.FirmaInfoViafirma;
@@ -31,6 +33,8 @@ import com.viafirma.examples.util.ConfigureUtil;
  *
  */
 public class FirmaFilter extends FirmaViafirmaFilter {
+	
+	private final static Log LOG = LogFactory.getLog(FirmaFilter.class);
 
 
 	@Override
@@ -51,7 +55,7 @@ public class FirmaFilter extends FirmaViafirmaFilter {
 	@Override
     protected boolean finFirma(HttpServletRequest request,
 			HttpServletResponse response, FirmaInfoViafirma firma) {
-		log.debug("Firma Completada con id:" + firma.getSignId());
+		LOG.debug("Firma Completada con id:" + firma.getSignId());
 		request.getSession().setAttribute("resultado", firma);
 		return true;
 	}
@@ -69,10 +73,8 @@ public class FirmaFilter extends FirmaViafirmaFilter {
 					"/exampleSign.pdf"));
 			return new FicheroVO("contrato.pdf", datos);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
 		return null;
 	}
-
-
 }
