@@ -1,3 +1,5 @@
+<%@page import="org.viafirma.cliente.util.OptionalRequest"%>
+<%@page import="org.viafirma.cliente.util.PolicyParams"%>
 <%@page import="org.viafirma.cliente.firma.TypeSign"%>
 <%@page import="org.viafirma.cliente.firma.Policy"%>
 <%@page import="org.viafirma.cliente.vo.Documento"%>
@@ -64,6 +66,9 @@
 										Policy policy = new Policy();
 										policy.setTypeFormatSign(TypeFormatSign.PAdES_BASIC);
 										policy.setTypeSign(TypeSign.ENVELOPED);
+										//Certificate filter, auto send
+										//policy.addParameter(PolicyParams.FILTER_NUMBER_USER_ID.getKey(), "XXXX");
+										//viafirmaClient.addOptionalRequest(OptionalRequest.AUTO_SEND);
 										
 										
 										// Preparamos los ficheros que deseamos firmar
