@@ -210,6 +210,10 @@ public class ConfigureUtil {
     public static String getViafirmaServerWS() {
         return URL_VIAFIRMA_WS;
     }
+    
+    public static String getViafirmaServerPublicWS() {
+        return StringUtils.replace(URL_VIAFIRMA, "/tokenConnector", "");
+    }
 
     public static String getApiKey() {
         return API_KEY;

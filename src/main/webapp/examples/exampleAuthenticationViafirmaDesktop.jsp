@@ -76,7 +76,7 @@
 									    String viafirmaDesktopLink = directCall.getViafirmaDesktopInvocationLink();
 							    %>
 							    
-                                <script src="<%=ConfigureUtil.getViafirmaServer() %>/viafirma.js?t=<%=System.currentTimeMillis()%>">
+                                <script src="<%=ConfigureUtil.getViafirmaServerPublicWS() %>/viafirma.js?t=<%=System.currentTimeMillis()%>">
                              		// Including this remote Javascript is mandatory, it includes the polling logic
                                 </script>
                                 <script>
@@ -116,7 +116,7 @@
                                 	   viafirma.init({
                                 		   // Here we include 
                                 		   operationId: "<%=operationId%>",
-                                		   viafirmaUrl: "<%=ConfigureUtil.getViafirmaServer() %>/",
+                                		   viafirmaUrl: "<%=ConfigureUtil.getViafirmaServerPublicWS() %>/",
                                 		   unloadedTime: 5,
                                 		   errorCallback: function(response) {
                                 			   showError(response);
