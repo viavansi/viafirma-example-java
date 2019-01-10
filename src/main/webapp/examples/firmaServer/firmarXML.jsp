@@ -93,6 +93,7 @@
 															pol.setTypeFormatSign(TypeFormatSign.XADES_EPES_ENVELOPED);
 				 											//Definimos la firma como DETACHED
 				 											pol.setTypeSign(TypeSign.ENVELOPED);
+				 											//pol.setTypeSign(TypeSign.ATTACHED);
 				 											//Policy parameters definition
 				 											//Document definition
 				 											Documento doc = new Documento("prueba.xml", datosAFirmar, TypeFile.XML, TypeFormatSign.XADES_EPES_ENVELOPED);
@@ -118,7 +119,12 @@
 														%>
 														<strong>Tipo de firma:</strong><%=tipoFirma %><br/>
 														<strong>Id de firma:</strong><%=idFirma%><br/>
-														<strong><a href="<%=ConfigureUtil.URL_VIAFIRMA%>/v/<%=idFirma%>?d">Descargar documento firmado</a>
+														<%
+															byte[] signedFileBinary = ViafirmaClientFactory.getInstance().getDocumentoCustodiado(idFirma);
+														%>
+														<strong>Tamaño de documento firmado: </strong><%=signedFileBinary.length %> bytes<br/> 														
+														<strong><a href="<%=ConfigureUtil.URL_VIAFIRMA%>/v/<%=idFirma%>?d">Descargar documento firmado</a></strong><br/>
+
 													<%}catch(Exception e){
 														%>
 														<strong>Se ha poducido un error en la firma:</strong><%=e.getMessage()%><br/>
