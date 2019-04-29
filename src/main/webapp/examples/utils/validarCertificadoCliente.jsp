@@ -21,15 +21,16 @@
 			<h1 id="header"><a href="../../"><img src="../../images/content/logo.png" alt="Viafirma" /></a></h1>
 			
 			<div id="content">
-				<h2>Comprobación de validez de certificador cliente</h2>
+				<h2>Validación clave pública de un certificado</h2>
 				
 				<div class="group">
 					<div class="col width-58 append-02">
 						<div class="box">
-							<h3 class="box-title">Verificar que el certificado sea válido</h3>
+							<h3 class="box-title">Validar Certificado</h3>
 							
 							<div class="box-content">
-								<p>En este ejemplo se realiza la comprobación de un certificado si es válido, está caducado o revocado. Se le pasará al servidor la clave pública del certificado a validar.</p>
+								<p>Con este método podrás pasar la clave pública de un certificado, en formato PEM, y obtendrás el resultado de validación. Si usas un 
+								certificado emitido por un Prestador <a href="https://doc.viafirma.com/viafirma-platform/install/preinstall/canotsupported.html">no reconocido</a> obtendrás un mensaje indicándolo.</p>
 								<form action="?validateCert">
 									<p>
 										PEM Encodig:    
@@ -78,7 +79,7 @@
 					
 					<div class="col width-40">
 						<div class="box">
-							<h3 class="box-title">Metodos utilizados</h3>
+							<h3 class="box-title">Métodos utilizados</h3>
 							<div class="box-content">
 								<ul>
 									<li>checkCertificate</li>
