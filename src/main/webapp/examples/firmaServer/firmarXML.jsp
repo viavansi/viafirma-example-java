@@ -91,9 +91,11 @@
 				 											Policy pol = new Policy();
 				 											//Definimos el tipo de formato (los formatos por defecto son enveloped, pero en el siguiente parámetro seteamos el tipo DETACHED)
 															pol.setTypeFormatSign(TypeFormatSign.XADES_EPES_ENVELOPED);
-				 											//Definimos la firma como DETACHED
+				 											//Definimos la firma como ENVELOPED
 				 											pol.setTypeSign(TypeSign.ENVELOPED);
-				 											//pol.setTypeSign(TypeSign.ATTACHED);
+				 											pol.addParameter(PolicyParams.SIGNATURE_POLICY_ID.getKey(), "urn:oid:2.16.724.1.3.1.1.2.1.9");
+															pol.addParameter(PolicyParams.SIGNATURE_POLICY_HASH_DATA.getKey(), "G7roucf600+f03r/o0bAOQ6WAs0=");
+															pol.addParameter(PolicyParams.SIGNATURE_POLICY_URI.getKey(), "https://sede.060.gob.es/politica_de_firma_anexo_1.pdf");
 				 											//Policy parameters definition
 				 											//Document definition
 				 											Documento doc = new Documento("prueba.xml", datosAFirmar, TypeFile.XML, TypeFormatSign.XADES_EPES_ENVELOPED);
