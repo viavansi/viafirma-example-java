@@ -87,11 +87,17 @@
 										// Indicamos a la plataforma que deseamos firmar el fichero
 										Policy policy = new Policy();
 
-		                                TypeFile typeFile = TypeFile.PDF;
+		                                				TypeFile typeFile = TypeFile.PDF;
 										TypeSign typeSign = TypeSign.ENVELOPED;
 		                                
 										policy.setTypeFormatSign(format);
 										policy.setTypeSign(typeSign);
+										
+										if (TypeFormatSign.PAdES_EPES.equals(format)) {
+											policy.addParameter(PolicyParams.SIGNATURE_POLICY_ID.getKey(), "2.16.724.1.3.1.1.2.1.9");
+						                			policy.addParameter(PolicyParams.SIGNATURE_POLICY_URI.getKey(), "https://sede.060.gob.es/politica_de_firma_anexo_1.pdf");
+						                    			policy.addParameter(PolicyParams.SIGNATURE_POLICY_HASH_DATA.getKey(), "G7roucf600+f03r/o0bAOQ6WAs0=");
+										}
 										
 										policy.addParameter(PolicyParams.SIGNATURE_ALGORITHM.getKey(), SignatureAlgorithm.SHA256withRSA.name());
 
