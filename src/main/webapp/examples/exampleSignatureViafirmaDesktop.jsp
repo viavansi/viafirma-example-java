@@ -125,7 +125,7 @@
                                  	document.getElementById("loading").style = "display: none;";
                                     
                                   	document.getElementById("signatureSuccess").innerHTML = 
-                                	  "<p>Viafirma Desktop no ha sido cargado, aquí se puede incluir código para gestionar la instalación, instrucciones, etc.</p>";
+                                	  "<p><strong>Viafirma Desktop no ha sido cargado, aquí se puede incluir código para gestionar la descarga, instalación, instrucciones, etc.</strong></p>";
                                 }
                                 // Here we initialize the viafirma.js polling 
                                 function initSignature() {
