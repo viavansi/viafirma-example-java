@@ -74,6 +74,7 @@
 									    DirectDesktopInvocation directCall = viafirmaClient.prepareAuthForDirectDesktop(authRequest);
 									    String operationId = directCall.getOperationId();
 									    String viafirmaDesktopLink = directCall.getViafirmaDesktopInvocationLink();
+									    String viafirmaDesktopAlternateLink=viafirmaDesktopLink.replace("viafirmawpfclient","viafirmadesktop");
 							    %>
 							    
                                 <script src="<%=ConfigureUtil.getViafirmaServerPublicWS() %>/viafirma.js?t=<%=System.currentTimeMillis()%>">
@@ -138,7 +139,8 @@
                                 <p id="authSuccess"></p>
                                 <p id="loading"></p>
                                 <p id="authButton">
-                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma</a>
+                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmawpfclient)</a>
+                                    <br/><br/><br/><a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmadesktop)</a>
                                 </p>
                                 <%  		
 									} else {
