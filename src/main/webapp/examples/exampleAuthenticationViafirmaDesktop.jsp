@@ -140,7 +140,10 @@
                                 <p id="loading"></p>
                                 <p id="authButton">
                                     <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmawpfclient)</a>
+                                    
+                                    <% if(Boolean.TRUE.equals(getInitParameter("viafirma_desktop_link"))){%>
                                     <br/><br/><br/><a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmadesktop)</a>
+                                    <%}%>
                                 </p>
                                 <%  		
 									} else {
