@@ -21,13 +21,13 @@ public class ConfigureUtil {
     /**
      * URL public of the viafirma
      */
-    public static String DEFAULT_URL_VIAFIRMA = "https://testservices.viafirma.com/viafirma";
+    public static String DEFAULT_URL_VIAFIRMA = "http://localhost:8080/viafirma";
     public static String URL_VIAFIRMA = DEFAULT_URL_VIAFIRMA;
     public static String SESSION_URL_VIAFIRMA = "SESSION_URL_VIAFIRMA";
     /**
      * URL private of the WS of Viafirma
      */
-    public static String DEFAULT_URL_VIAFIRMA_WS = "https://testservices.viafirma.com/viafirma";
+    public static String DEFAULT_URL_VIAFIRMA_WS = "http://localhost:8080/viafirma";
     public static String URL_VIAFIRMA_WS = DEFAULT_URL_VIAFIRMA_WS;
     public static String SESSION_URL_VIAFIRMA_WS = "SESSION_URL_VIAFIRMA_WS";
 
@@ -59,7 +59,7 @@ public class ConfigureUtil {
     public static String PROXY_USER = "";
     public static String PROXY_PASS = "";
 
-    public static String DEFAULT_URL_CALLBACK = "https://testservices.viafirma.com/ejemploViafirma/ViafirmaCallbackServlet";
+    public static String DEFAULT_URL_CALLBACK = "http://localhost:8080/ejemploViafirma/ViafirmaCallbackServlet";
     public static String URL_CALLBACK = DEFAULT_URL_CALLBACK;
     public static String SESSION_URL_CALLBACK = "SESSION_URL_CALLBACK";
 

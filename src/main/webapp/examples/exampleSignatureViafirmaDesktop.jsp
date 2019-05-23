@@ -163,6 +163,7 @@
                                 <p id="loading"></p>
                                 <p id="signatureButton">
                                     <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initSignature();">Firmar con Viafirma Desktop</a>
+                                    <a class="button" href="<%=viafirmaDesktopLink.replace("viafirmawpfclient", "viafirmaDesktop")%>" onclick="initSignature();">Firmar con Viafirma Desktop (2)</a>
                                 </p>
                                 <%  
 									} else {

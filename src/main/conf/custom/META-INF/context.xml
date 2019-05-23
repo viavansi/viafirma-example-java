@@ -5,7 +5,7 @@
 		<Environment
 			description="Configuracion del Cliente de viafirma, los datos siguen la siguiente estructura:URL_VIAFIRMA;URL_VIAFIRMA_WS;API_KEY;API_PASS"
 			name="CONFIG_VIAFIRMA_CLIENT" override="false" type="java.lang.String"
-			value="https://testservices.viafirma.com/viafirma;https://testservices.viafirma.com/viafirma;xnoccio;12345" />
+			value="http://localhost:8080/viafirma;http://localhost:8080/viafirma;xnoccio;12345" />
 
 
 </Context>
