@@ -1,5 +1,6 @@
 <%@page import="org.viafirma.cliente.util.OptionalRequest"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Enumeration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.FilterOperator"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.CertFilter"%>
@@ -139,9 +140,8 @@
                                 <p id="authSuccess"></p>
                                 <p id="loading"></p>
                                 <p id="authButton">
-                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmawpfclient)</a>
-                                    
-                                    <% if(Boolean.TRUE.equals(getInitParameter("viafirma_desktop_link"))){%>
+                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmawpfclient)</a>                                  
+                                    <% if("true".equals(getServletContext().getInitParameter("viafirma_desktop_link"))){%>
                                     <br/><br/><br/><a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmadesktop)</a>
                                     <%}%>
                                 </p>
