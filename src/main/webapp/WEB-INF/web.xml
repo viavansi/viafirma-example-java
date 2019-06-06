@@ -4,17 +4,16 @@
 <web-app id="ejemploViafirma2" version="2.4"
 	xmlns="http://java.sun.com/xml/ns/j2ee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-
-	<context-param>
-		<param-name>viafirma_desktop_link</param-name>
-		<param-value>false</param-value>
-	</context-param>
-	
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">	
 	<display-name>ejemploViafirma</display-name>
 	<description>
 	   Ejemplo de uso de la SDK de Java para viafirma platform
 	</description>
+	<context-param>
+		<param-name>viafirma_desktop_link</param-name>
+		<param-value>true</param-value>
+		
+	</context-param>
 	
 	<error-page>
   		<error-code>401</error-code>

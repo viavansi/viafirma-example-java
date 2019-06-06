@@ -164,11 +164,9 @@
                                 <p id="loading"></p>
                                 <p id="signatureButton">
                                     <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initSignature();">Firmar con Viafirma Desktop (viafirmawpfclient)</a>
-                                   
-                                    <% if("true".equals(getServletContext().getInitParameter("viafirma_desktop_link"))){%>
-                                    <br/><br/><br/><a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initSignature();">Firmar con Viafirma Desktop (viafirmadesktop)</a>
-                                    <%}%>
-                                    
+                                </p>
+                                <p>
+                                    <a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initSignature();">Firmar con Viafirma Desktop (viafirmadesktop)</a>                                    
                                 </p>
                                 <%  
 									} else {
