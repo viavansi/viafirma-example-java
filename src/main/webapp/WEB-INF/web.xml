@@ -9,6 +9,11 @@
 	<description>
 	   Ejemplo de uso de la SDK de Java para viafirma platform
 	</description>
+	<context-param>
+		<param-name>viafirma_desktop_link</param-name>
+		<param-value>true</param-value>
+		
+	</context-param>
 	
 	<error-page>
   		<error-code>401</error-code>
