@@ -13,7 +13,6 @@
 	<body>
 		<div id="wrapper">
 			<h1 id="header"><a href="."><img src="images/content/logo.png" alt="Viafirma" /></a></h1>
-			[TestServices]
 			<div id="content">
 				
 				<p class="message">La aplicación de ejemplo está actualmente configurada para utilizar:<br/>
