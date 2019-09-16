@@ -162,9 +162,7 @@
                                 <p id="signatureSuccess"></p>
                                 <p id="loading"></p>
                                 <p id="signatureButton">
-                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initSignature();">Firmar con Viafirma Desktop (viafirmawpfclient)</a>
-                                                      
-                                    <br/><br/><br/><a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initSignature();">Firmar con Viafirma Desktop (viafirmadesktop)</a>                                    
+                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initSignature();">Firmar con Viafirma Desktop</a>
                                     
                                 </p>
                                 <%  

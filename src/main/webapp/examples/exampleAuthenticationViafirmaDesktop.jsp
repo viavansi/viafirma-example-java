@@ -141,10 +141,7 @@
                                 <p id="authSuccess"></p>
                                 <p id="loading"></p>
                                 <p id="authButton">
-                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmawpfclient)</a>       
-                                </p>
-                                <p>                                                             
-                                    <a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initAuth();">Autenticar con Viafirma (viafirmadesktop)</a>
+                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initAuth();">Autenticar con Viafirma Desktop</a>       
                                 </p>
                                 <%  		
 									} else {
