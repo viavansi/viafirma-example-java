@@ -81,6 +81,7 @@
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_REASON.getKey(), "Example Sign");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_CONTACT.getKey(), "Contact Person Name");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_LOCATION.getKey(), "Tomares");
+										policy.addParameter(PolicyParams.DIGITAL_SIGN_TIMEZONE.getKey(), "America/Santiago");
 										
 										// Files to be signed
 										byte[] documentBinaryContent = IOUtils.toByteArray(getClass().getResourceAsStream("/exampleSign.pdf"));	
@@ -98,7 +99,6 @@
 									    DirectDesktopInvocation directCall = viafirmaClient.prepareSignatureForDirectDesktop(authRequest, files, request);
 									    String operationId = directCall.getOperationId();
 									    String viafirmaDesktopLink = directCall.getViafirmaDesktopInvocationLink();
-									    String viafirmaDesktopAlternateLink=viafirmaDesktopLink.replace("viafirmawpfclient","viafirmadesktop");
 							    %>
 							    
                                 <script src="<%=ConfigureUtil.getViafirmaServerPublicWS() %>/viafirma.js?t=<%=System.currentTimeMillis()%>">
@@ -163,10 +163,7 @@
                                 <p id="signatureSuccess"></p>
                                 <p id="loading"></p>
                                 <p id="signatureButton">
-                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initSignature();">Firmar con Viafirma Desktop (viafirmawpfclient)</a>
-                                </p>
-                                <p>
-                                    <a class="button" href="<%=viafirmaDesktopAlternateLink%>" onclick="initSignature();">Firmar con Viafirma Desktop (viafirmadesktop)</a>                                    
+                                    <a class="button" href="<%=viafirmaDesktopLink%>" onclick="initSignature();">Firmar con Viafirma Desktop</a>
                                 </p>
                                 <%  
 									} else {

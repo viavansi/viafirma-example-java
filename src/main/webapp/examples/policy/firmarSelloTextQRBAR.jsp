@@ -65,6 +65,7 @@
 										//policy.addParameter(PolicyParams.DIGITAL_SIGN_IMAGE_STAMPER.getKey(), logoStamp);
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_TEXT.getKey(), "Firmado por [CN] con DNI [SERIALNUMBER]\ntrabajador de [O] en el departamento de [OU]");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_TYPE.getKey(), "QR-BAR-H");
+										//policy.addParameter(PolicyParams.DIGITAL_SIGN_TIMEZONE.getKey(), "GMT-8");
 										
 										// Indicamos a la plataforma que deseamos firmar el fichero
 										String idFirma = viafirmaClient.prepareSignWithPolicy(policy, doc);	
