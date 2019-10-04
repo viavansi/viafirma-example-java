@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: main-example-ingress
+  namespace: platform-ci
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/affinity: "cookie"
+    ingress.kubernetes.io/session-cookie-expires: "172800"
+    ingress.kubernetes.io/session-cookie-max-age: "172800"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    ingress.kubernetes.io/proxy-body-size: "128m"
+spec:
+  rules:
+    - host: "platform-ci.viafirma.com"
+      http:
+        paths:
+          - path: /ejemploViafirma
+            backend:
+              serviceName: platform-example-ci-web
+              servicePort: 8080

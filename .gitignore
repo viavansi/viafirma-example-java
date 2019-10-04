@@ -19,4 +19,7 @@ target/
 # Idea
 .idea
 
+# Docker
+docker/ejemploViafirma.war
+
 src/main/webapp/util.jsp
