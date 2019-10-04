@@ -67,6 +67,7 @@
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_REASON.getKey(), "Example Sign");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_CONTACT.getKey(), "Contact Person Name");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_LOCATION.getKey(), "Tomares");
+										//policy.addParameter(PolicyParams.DIGITAL_SIGN_TIMEZONE.getKey(), "GMT-8");
 										
 										// Indicamos a la plataforma que deseamos firmar el fichero
 										String idFirma = viafirmaClient.prepareSignWithPolicy(policy, doc);	

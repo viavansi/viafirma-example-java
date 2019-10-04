@@ -13,7 +13,7 @@
 	<inceptionYear>2018</inceptionYear>
 	
 	<properties>
-		<viafirmaClientVersion>2.14.13</viafirmaClientVersion>
+		<viafirmaClientVersion>2.14.14</viafirmaClientVersion>
 	</properties>
 	
 	<organization>
@@ -73,6 +73,7 @@
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-rt</artifactId>
 			<version>2.1.4</version>
+			<scope>provided</scope>
 			<!-- 
 				Debido a que la versión publicada en repo1.maven.org contiene un
 				error de empaquetado que hace que solo funcione con Java 6

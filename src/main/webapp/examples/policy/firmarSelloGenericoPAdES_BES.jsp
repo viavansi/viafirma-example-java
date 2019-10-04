@@ -62,6 +62,7 @@
  										policy.addParameter(PolicyParams.DIGITAL_SIGN_PAGE.getKey(), "1");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_RECTANGLE.getKey(), new org.viafirma.cliente.vo.Rectangle(40,10,550,75));
 										policy.addParameter(PolicyParams.PADES_INCLUDE_TSA.getKey(), "true");
+										//policy.addParameter(PolicyParams.DIGITAL_SIGN_TIMEZONE.getKey(), "GMT-8");
 										
 										// Indicamos a la plataforma que deseamos firmar el fichero
 										String idFirma = viafirmaClient.prepareSignWithPolicy(policy, doc);	

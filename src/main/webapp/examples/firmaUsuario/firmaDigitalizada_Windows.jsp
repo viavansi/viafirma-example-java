@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="org.viafirma.cliente.vo.Rectangle"%>
 <%@page import="org.viafirma.cliente.util.PolicyParams"%>
 <%@page import="org.viafirma.cliente.firma.TypeSign"%>
@@ -73,10 +74,12 @@
 										policy.addParameter(PolicyParams.DIGITALIZED_SIGN_COLOUR.getKey(), "#000000");
 										//Indica el texto de ayuda que aparece en la pantalla 
 										policy.addParameter(PolicyParams.DIGITALIZED_SIGN_HELP_TEXT.getKey(), "Texto de ayuda aportado por el integrador");
+										
+										policy.addParameter(PolicyParams.DIGITALIZED_SIGNATURE_FORMAT.getKey(), TypeFormatSign.XADES_T_ENVELOPED);
 										//Logo a mostrar
 // 										policy.addParameter(PolicyParams.DIGITALIZED_SIGN_LOGO.getKey(), logoStamp);
 										//Rectangulo donde se fija la firma
-										policy.addParameter(PolicyParams.DIGITALIZED_SIGN_RECTANGLE.getKey(), new Rectangle(35,60,20,40));
+										policy.addParameter(PolicyParams.DIGITALIZED_SIGN_RECTANGLE.getKey(), new Rectangle(35,60,40,80));
 										//pag 8 200,7,20,40
 										//pag 3 35,60,20,40
 										
@@ -94,7 +97,13 @@
 										
 									    policy.addParameter(PolicyParams.DIGITALIZED_SIGNATURE_INFO.getKey(), "Nombre Apellidos");
 									    
-									    policy.addParameter(PolicyParams.DIGITALIZED_SIGN_PDF_SIGNATURE_FORMAT.getKey(), TypeFormatSign.PDF_PKCS7_T.name());
+									    policy.addParameter(PolicyParams.DIGITALIZED_SIGN_PDF_SIGNATURE_FORMAT.getKey(), TypeFormatSign.PAdES_BES.name());
+									    
+										// Rectangle de anotacion
+										policy.addParameter(PolicyParams.PDF_ANNOTATION_RECTANGLE.getKey(), new org.viafirma.cliente.vo.Rectangle(350, 350, 100, 100));
+										policy.addParameter(PolicyParams.PDF_ANNOTATION_PAGE.getKey(), "1");
+										String base64Image = new String(Base64.encodeBase64(logoStamp));
+										policy.addParameter(PolicyParams.PDF_ANNOTATION_IMAGE.getKey(),base64Image);
 									    
 										// Indicamos a la plataforma que deseamos firmar el fichero
 										String idFirma=viafirmaClient.prepareSignWithPolicy(policy, documento);
