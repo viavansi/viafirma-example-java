@@ -16,4 +16,7 @@ log/
 target/
 /bin/
 
+# Idea
+.idea
+
 src/main/webapp/util.jsp
