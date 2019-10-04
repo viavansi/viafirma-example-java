@@ -124,8 +124,8 @@ pipeline {
             stage('ci'){
                 steps{
                     script {
-                        sh 'sshpass -p "viavansi" scp -r deploy/kubernetes/ci/platform-example-deployment.yaml viavansi@192.168.5.103:platform-ci/platform-example-deployment.yaml'
-                        sh 'sshpass -p "viavansi" scp -r deploy/kubernetes/ci/platform-example-ingress.yaml viavansi@192.168.5.103:platform-ci/platform-example-ingress.yaml'
+                        sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-deployment.yaml viavansi@192.168.5.103:platform-ci/platform-example-deployment.yaml'
+                        sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-ingress.yaml viavansi@192.168.5.103:platform-ci/platform-example-ingress.yaml'
                         sh 'sshpass -p "viavansi" ssh viavansi@192.168.5.103 "cd platform-ci && kubectl apply -f platform-example-deployment.yaml"'
                     }
                 }
@@ -133,8 +133,8 @@ pipeline {
             stage('sandbox'){
                             steps{
                                 script {
-                                   sh 'sshpass -p "viavansi" scp -r deploy/kubernetes/sandbox/platform-example-deployment.yaml viavansi@192.168.5.103:platform-sandbox/platform-example-deployment.yaml'
-                                   sh 'sshpass -p "viavansi" scp -r deploy/kubernetes/sandbox/platform-example-ingress.yaml viavansi@192.168.5.103:platform-sandbox/platform-example-ingress.yaml'
+                                   sh 'sshpass -p "viavansi" scp deploy/kubernetes/sandbox/platform-example-deployment.yaml viavansi@192.168.5.103:platform-sandbox/platform-example-deployment.yaml'
+                                   sh 'sshpass -p "viavansi" scp deploy/kubernetes/sandbox/platform-example-ingress.yaml viavansi@192.168.5.103:platform-sandbox/platform-example-ingress.yaml'
                                    sh 'sshpass -p "viavansi" ssh viavansi@192.168.5.103 "cd platform-sandbox && kubectl apply -f platform-example-deployment.yaml"'
                                 }
                             }
