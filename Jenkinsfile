@@ -115,15 +115,17 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh "cd docker && ./build.sh"
+                    sh "cd docker && ./build.sh && cd .."
                 }
             }
         }
-        stage('dev deployment'){
+        stage('deployment'){
             parallel {
             stage('ci'){
                 steps{
                     script {
+                        sh 'pwd'
+                        sh 'ls -al'
                         sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-deployment.yaml viavansi@192.168.5.103:platform-ci/platform-example-deployment.yaml'
                         sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-ingress.yaml viavansi@192.168.5.103:platform-ci/platform-example-ingress.yaml'
                         sh 'sshpass -p "viavansi" ssh viavansi@192.168.5.103 "cd platform-ci && kubectl apply -f platform-example-deployment.yaml"'
