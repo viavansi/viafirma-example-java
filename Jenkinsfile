@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Git clone'){
             steps{
-                git branch:"viafirma-kube-deployment" ,url: 'git@github.com:viavansi/viafirma-platform.git'
+                git branch:"master" ,url: 'git@github.com:viavansi/viafirma-platform-example-java.git'
             }
         }
         stage ('Ask parameters'){
