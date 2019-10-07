@@ -76,8 +76,15 @@ public class ConfigureUtil {
      */
     public static void load() {
         // Default values
-        URL_VIAFIRMA = DEFAULT_URL_VIAFIRMA;
-        URL_VIAFIRMA_WS = DEFAULT_URL_VIAFIRMA_WS;
+        URL_VIAFIRMA=System.getenv().get("URL_VIAFIRMA");
+        URL_VIAFIRMA_WS=System.getenv().get("URL_VIAFIRMA_WS");
+
+        if(StringUtils.isEmpty(URL_VIAFIRMA)) {
+            URL_VIAFIRMA = DEFAULT_URL_VIAFIRMA;
+        }
+        if(StringUtils.isEmpty(URL_VIAFIRMA_WS)) {
+            URL_VIAFIRMA_WS = DEFAULT_URL_VIAFIRMA_WS;
+        }
         API_KEY = DEFAULT_API_KEY;
         API_PASS = DEFAULT_API_PASS;
         CERTALIAS = DEFAULT_CERTALIAS;

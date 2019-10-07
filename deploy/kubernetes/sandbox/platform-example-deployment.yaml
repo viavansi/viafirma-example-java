@@ -38,5 +38,10 @@ spec:
         - name: example
           imagePullPolicy: Always
           image: registry.viafirma.com/viafirma/platform/platform-example:latest
+          env:
+          - name: URL_VIAFIRMA
+            value: "http://platform-sandbox.viafirma.com/viafirma"
+          - name: URL_VIAFIRMA_WS
+            value: "http://platform-sandbox.viafirma.com/viafirma"
       imagePullSecrets:
         - name: viavansi-registry
