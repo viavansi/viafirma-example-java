@@ -1,5 +1,6 @@
 package com.viafirma.examples.util;
 
+import java.net.URL;
 import java.util.Properties;
 
 import javax.naming.Context;
@@ -17,6 +18,8 @@ import org.viafirma.cliente.util.Constantes;
  *
  */
 public class ConfigureUtil {
+
+     private static final Logger LOG=Logger.getLogger(ConfigureUtil.class);
 
     /**
      * URL public of the viafirma
@@ -78,6 +81,9 @@ public class ConfigureUtil {
         // Default values
         URL_VIAFIRMA=System.getenv("URL_VIAFIRMA");
         URL_VIAFIRMA_WS=System.getenv("URL_VIAFIRMA_WS");
+        LOG.debug("ENV:"+System.getenv());
+        LOG.debug("URL_VIAFIRMA:"+ URL_VIAFIRMA);
+        LOG.debug("URL_VIAFIRMA_WS:"+URL_VIAFIRMA_WS);
 
         if(StringUtils.isEmpty(URL_VIAFIRMA)) {
             URL_VIAFIRMA = DEFAULT_URL_VIAFIRMA;
