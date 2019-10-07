@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/affinity: 'cookie'
 spec:
   selector:
-    app: web
+    app: example
     tier: web
   ports:
     - protocol: TCP
@@ -26,16 +26,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: example
       tier: web
   template:
     metadata:
       labels:
-        app: web
+        app: example
         tier: web
     spec:
       containers:
-        - name: web
+        - name: example
           imagePullPolicy: Always
           image: registry.viafirma.com/viafirma/platform/platform-example:latest
       imagePullSecrets:
