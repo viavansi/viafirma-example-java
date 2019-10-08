@@ -114,8 +114,6 @@ public class ConfigureUtil {
                 URL_VIAFIRMA_WS = urlViafirmaWs;
             }
 
-
-
             try {
                 String configViafirmaCertParam = (String) context.lookup("CONFIG_VIAFIRMA_CERT_SERVER");
                 String[] configViafirmaCert = configViafirmaCertParam.split(";");
