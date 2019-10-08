@@ -20,7 +20,7 @@ pipeline {
                     script {
                         def currentVersion=
                             sh (
-    script: 'mvn -q -Dexec.executable=echo -Dexec.args=\'${project.version}\' --non-recursive exec:exec',
+    script: 'mvn -Dexec.executable=echo -Dexec.args=\'${project.version}\' --non-recursive exec:exec',
     returnStdout: true
   ).trim()
                 try
@@ -81,7 +81,7 @@ pipeline {
         stage('Build'){
             steps{
                 withMaven(maven: 'maven-3.6.1') {
-                    sh "mvn -q -U clean package -P tomcat6 sonar:sonar -Dsonar.host.url=${env.SONAR_SERVER} -Dmaven.test.skip=true"
+                    sh "mvn -U clean package -P tomcat6 sonar:sonar -Dsonar.host.url=${env.SONAR_SERVER} -Dmaven.test.skip=true"
                 }
              }
         }
