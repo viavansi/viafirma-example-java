@@ -33,7 +33,6 @@ pipeline {
         }
 
         stage('deployment'){
-            stage('ci'){
                 steps{
                     script {
                         sh 'pwd'
@@ -43,7 +42,6 @@ pipeline {
                         sh 'sshpass -p "viavansi" ssh viavansi@192.168.5.103 "cd platform-ci && kubectl delete -f platform-example-deployment.yaml && kubectl apply -f platform-example-deployment.yaml"'
                     }
                 }
-           }
         }
     }
     post {

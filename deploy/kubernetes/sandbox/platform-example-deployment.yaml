@@ -37,7 +37,7 @@ spec:
       containers:
         - name: example
           imagePullPolicy: Always
-          image: registry.viafirma.com/viafirma/platform/platform-example:latest
+          image: registry.viafirma.com/viafirma/platform/platform-example:$VERSION
           env:
           - name: URL_VIAFIRMA
             value: "https://platform-sandbox.viafirma.com/viafirma"
