@@ -14,13 +14,13 @@ pipeline {
         stage('Build'){
             steps{
                 sh "ls -al"
-                sh "build.sh ci"
+                sh "./build.sh ci"
              }
         }
 
         stage('Deploy'){
             steps{
-                sh "deploy.sh ci"
+                sh "./deploy.sh ci"
             }
         }
     }
