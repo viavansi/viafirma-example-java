@@ -115,39 +115,14 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh "cd docker && ./build.sh && cd .."
+                    sh "./build.sh"
                 }
-            }
-        }
-        stage('deployment'){
-            parallel {
-            stage('ci'){
-                steps{
-                    script {
-                        sh 'pwd'
-                        sh 'ls -al'
-                        sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-deployment.yaml viavansi@192.168.5.103:platform-ci/platform-example-deployment.yaml'
-                        sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-ingress.yaml viavansi@192.168.5.103:platform-ci/platform-example-ingress.yaml'
-                        sh 'sshpass -p "viavansi" ssh viavansi@192.168.5.103 "cd platform-ci && kubectl delete -f platform-example-deployment.yaml && kubectl apply -f platform-example-deployment.yaml"'
-                    }
-                }
-            }
-            stage('sandbox'){
-                            steps{
-                                script {
-                                   sh 'sshpass -p "viavansi" scp deploy/kubernetes/sandbox/platform-example-deployment.yaml viavansi@192.168.5.103:platform-sandbox/platform-example-deployment.yaml'
-                                   sh 'sshpass -p "viavansi" scp deploy/kubernetes/sandbox/platform-example-ingress.yaml viavansi@192.168.5.103:platform-sandbox/platform-example-ingress.yaml'
-                                   sh 'sshpass -p "viavansi" ssh viavansi@192.168.5.103 "cd platform-sandbox && kubectl delete -f platform-example-deployment.yaml && kubectl apply -f platform-example-deployment.yaml"'
-                                }
-                            }
-                        }
-
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: '**/*.jar', onlyIfSuccessful: true, fingerprint: true
+            archiveArtifacts artifacts: '**/*.war', onlyIfSuccessful: true, fingerprint: true
         }
     }
 }

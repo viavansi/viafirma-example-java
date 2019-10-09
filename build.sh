@@ -2,10 +2,17 @@
 
 docker login -u jenkins -p Jenkins12345 registry.viafirma.com
 appVersion=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-echo $appVersion
+
 cp target/ejemploViafirma.war docker
 
-tag_version="registry.viafirma.com/viafirma/platform/platform-example:${appVersion}-$1"
+
+if [ $# -eq 0 ]
+  then
+        dockerImageVersion=${appVersion}
+  else
+        dockerImageVersion=${appVersion}-$1
+fi
+tag_version="registry.viafirma.com/viafirma/platform/platform-example:${dockerImageVersion}"
 
 cd docker
 docker build -t ${tag_version} .
