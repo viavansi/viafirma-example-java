@@ -1,0 +1,54 @@
+pipeline {
+    environment{
+        SCRIPT_NEXT_VERSION=""
+        SCRIPT_TAG_SCM="no"
+        FINISH_VERSION=""
+    }
+    agent {
+        node {
+            label 'registry'
+        }
+    }
+    stages {
+        stage('Git clone'){
+            steps{
+                git branch:"ci" ,url: 'git@github.com:viavansi/viafirma-platform-example-java.git'
+            }
+        }
+        // Launch compile and sonar
+        stage('Build'){
+            steps{
+                withMaven(maven: 'maven-3.6.1') {
+                    sh "mvn -U clean package -P tomcat6 sonar:sonar -Dsonar.host.url=${env.SONAR_SERVER} -Dmaven.test.skip=true"
+                }
+             }
+        }
+
+        stage('Build docker image'){
+            steps{
+                script{
+                    sh "cd docker && ./build.sh ci && cd .."
+                }
+            }
+        }
+
+        stage('deployment'){
+            stage('ci'){
+                steps{
+                    script {
+                        sh 'pwd'
+                        sh 'ls -al'
+                        sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-deployment.yaml viavansi@192.168.5.103:platform-ci/platform-example-deployment.yaml'
+                        sh 'sshpass -p "viavansi" scp deploy/kubernetes/ci/platform-example-ingress.yaml viavansi@192.168.5.103:platform-ci/platform-example-ingress.yaml'
+                        sh 'sshpass -p "viavansi" ssh viavansi@192.168.5.103 "cd platform-ci && kubectl delete -f platform-example-deployment.yaml && kubectl apply -f platform-example-deployment.yaml"'
+                    }
+                }
+           }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: '**/*.jar', onlyIfSuccessful: true, fingerprint: true
+        }
+    }
+}
