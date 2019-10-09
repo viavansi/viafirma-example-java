@@ -10,11 +10,15 @@ pipeline {
                 git branch:"ci" ,url: 'git@github.com:viavansi/viafirma-platform-example-java.git'
             }
         }
-        // Launch compile and sonar
         stage('Build'){
-            steps{
-                sh "ls -al"
-                sh "./build.sh ci"
+                            steps{
+                                sh "mvn -U clean package -P tomcat6 sonar:sonar -Dsonar.host.url=${env.SONAR_SERVER} -Dmaven.test.skip=true"
+                             }
+                        }
+
+                stage('Build Docker'){
+                    steps{
+                        sh "./build.sh  ci"
              }
         }
 
