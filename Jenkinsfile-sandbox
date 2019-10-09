@@ -13,19 +13,19 @@ pipeline {
         // Launch compile and sonar
         stage('Build'){
             steps{
-                sh "build.sh sandbox"
+                sh "./build.sh sandbox"
              }
         }
 
         stage('Deploy'){
             steps{
-                sh "deploy.sh sandbox"
+                sh "./deploy.sh sandbox"
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: '**/*.jar', onlyIfSuccessful: true, fingerprint: true
+            archiveArtifacts artifacts: '**/*.war', onlyIfSuccessful: true, fingerprint: true
         }
     }
 }
