@@ -13,7 +13,7 @@ pipeline {
         // Launch compile and sonar
         stage('Build'){
             steps{
-                sh 'build.sh sandbox'
+                sh "build.sh sandbox"
              }
         }
 
