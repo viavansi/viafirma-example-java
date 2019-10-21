@@ -1,0 +1,47 @@
+# BACKEND SERVICE
+kind: Service
+apiVersion: v1
+metadata:
+  name: platform-example-sandbox-web
+  namespace: platform-sandbox
+  annotations:
+    ingress.kubernetes.io/affinity: 'cookie'
+    nginx.ingress.kubernetes.io/affinity: 'cookie'
+spec:
+  selector:
+    app: example
+    tier: web
+  ports:
+    - protocol: TCP
+      port: 8080
+  type: NodePort
+---
+# BACKEND
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: platform-example-sandbox-backend
+  namespace: platform-sandbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: example
+        tier: web
+    spec:
+      containers:
+        - name: example
+          imagePullPolicy: Always
+          image: registry.viafirma.com/viafirma/platform/platform-example:latest
+          env:
+          - name: URL_VIAFIRMA
+            value: "https://platform-sandbox.viafirma.com/viafirma"
+          - name: URL_VIAFIRMA_WS
+            value: "https://platform-sandbox.viafirma.com/viafirma"
+      imagePullSecrets:
+        - name: viavansi-registry

@@ -1,5 +1,6 @@
 package com.viafirma.examples.util;
 
+import java.net.URL;
 import java.util.Properties;
 
 import javax.naming.Context;
@@ -17,6 +18,8 @@ import org.viafirma.cliente.util.Constantes;
  *
  */
 public class ConfigureUtil {
+
+     private static final Logger LOG=Logger.getLogger(ConfigureUtil.class);
 
     /**
      * URL public of the viafirma
@@ -76,8 +79,8 @@ public class ConfigureUtil {
      */
     public static void load() {
         // Default values
-        URL_VIAFIRMA = DEFAULT_URL_VIAFIRMA;
-        URL_VIAFIRMA_WS = DEFAULT_URL_VIAFIRMA_WS;
+        URL_VIAFIRMA=DEFAULT_URL_VIAFIRMA;
+        URL_VIAFIRMA_WS=DEFAULT_URL_VIAFIRMA_WS;
         API_KEY = DEFAULT_API_KEY;
         API_PASS = DEFAULT_API_PASS;
         CERTALIAS = DEFAULT_CERTALIAS;
@@ -98,6 +101,17 @@ public class ConfigureUtil {
 
             } catch (NameNotFoundException e) {
                 Logger.getLogger(ConfigureUtil.class).warn(e.getMessage());
+            }
+
+            // Overwrite if set as environment variable
+            String urlViafirma=System.getenv("URL_VIAFIRMA");
+            String urlViafirmaWs=System.getenv("URL_VIAFIRMA_WS");
+
+            if(!StringUtils.isEmpty(urlViafirma)) {
+                URL_VIAFIRMA = urlViafirma;
+            }
+            if(!StringUtils.isEmpty(urlViafirmaWs)) {
+                URL_VIAFIRMA_WS = urlViafirmaWs;
             }
 
             try {
