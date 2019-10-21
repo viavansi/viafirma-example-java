@@ -76,8 +76,8 @@
 					</div>
 					<%
 					    File file;
-					    int maxFileSize = 5000 * 1024;
-					    int maxMemSize = 5000 * 1024;
+					    int maxFileSize = 50000 * 1024;
+					    int maxMemSize = 50000 * 1024;
 					    ServletContext context = pageContext.getServletContext();
 					    String filePath = context.getInitParameter("file-upload");
 
@@ -158,7 +158,9 @@
 							<p>
 								<strong>Fecha firma: </strong><%=signatureVerification.getSignTimeStamp()%></p>
 							<p>
-								<strong>Nif: </strong><%=certificateResponse.getNumberUserId()%>
+								<strong>Formato de firma: </strong><%=signatureVerification.getSignatureFormat()%></p>
+							<p>
+								<strong>NIF: </strong><%=certificateResponse.getNumberUserId()%>
 							</p>
 							<p>
 								<strong>Nombre: </strong><%=certificateResponse.getFirstName()%>
@@ -189,11 +191,13 @@
 								<ul>
 								<%
 								Map<String,String> map = certificateResponse.getProperties();
-								for (Map.Entry<String, String> entry : map.entrySet())
-								{
-								    %>
-								    	<li><strong><%=entry.getKey()%>: </strong><%=entry.getValue()%></li>
-								    <%
+								if (map != null) {
+									for (Map.Entry<String, String> entry : map.entrySet())
+									{
+									    %>
+									    	<li><strong><%=entry.getKey()%>: </strong><%=entry.getValue()%></li>
+									    <%
+									}
 								}
 								%>
 								</ul>
