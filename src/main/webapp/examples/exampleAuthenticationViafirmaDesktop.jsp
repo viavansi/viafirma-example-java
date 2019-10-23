@@ -120,7 +120,7 @@
                                 		   // Here we include 
                                 		   operationId: "<%=operationId%>",
                                 		   viafirmaUrl: "<%=ConfigureUtil.getViafirmaServerPublicWS() %>/",
-                                		   unloadedTime: 5,
+                                		   unloadedTime: 30,
                                 		   errorCallback: function(response) {
                                 			   showError(response);
                                 		   },
