@@ -8,7 +8,7 @@ echo $version
 export KUBECONFIG=$HOME/.kube/viafirma-test-config && kubectl config --kubeconfig=$HOME/.kube/viafirma-test-config set-context viavansi
 rm -rf tmpDeploy
 mkdir tmpDeploy
-cp deploy/kubernetes/ci/* tmpDeploy
+cp deploy/kubernetes/sandbox/* tmpDeploy
 cd tmpDeploy
 sed -i -- 's/\$VERSION/'${version}-sandbox'/g' *
 kubectl delete -f .
