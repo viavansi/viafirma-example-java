@@ -17,7 +17,7 @@ spec:
   type: NodePort
 ---
 # BACKEND
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: platform-example-sandbox-backend
@@ -39,9 +39,9 @@ spec:
           imagePullPolicy: Always
           image: registry.viafirma.com/viafirma/platform/platform-example:$VERSION
           env:
-          - name: URL_VIAFIRMA
-            value: "https://platform-sandbox.viafirma.com/viafirma"
-          - name: URL_VIAFIRMA_WS
-            value: "https://platform-sandbox.viafirma.com/viafirma"
+            - name: URL_VIAFIRMA
+              value: 'https://platform-sandbox.viafirma.com/viafirma'
+            - name: URL_VIAFIRMA_WS
+              value: 'https://platform-sandbox.viafirma.com/viafirma'
       imagePullSecrets:
         - name: viavansi-registry
