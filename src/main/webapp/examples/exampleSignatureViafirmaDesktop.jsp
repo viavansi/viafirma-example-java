@@ -1,3 +1,5 @@
+<%@page import="org.viafirma.cliente.firma.DigestMethod"%>
+<%@page import="org.viafirma.cliente.firma.SignatureAlgorithm"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.FilterOperator"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.CertFilter"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.SignatureOperationRequest"%>
@@ -81,7 +83,10 @@
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_REASON.getKey(), "Example Sign");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_CONTACT.getKey(), "Contact Person Name");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_LOCATION.getKey(), "Tomares");
-										policy.addParameter(PolicyParams.DIGITAL_SIGN_TIMEZONE.getKey(), "America/Santiago");
+										//policy.addParameter(PolicyParams.DIGITAL_SIGN_TIMEZONE.getKey(), "America/Santiago");
+										
+										policy.addParameter(PolicyParams.SIGNATURE_ALGORITHM.getKey(), SignatureAlgorithm.SHA256withRSA.name());
+										policy.addParameter(PolicyParams.DIGEST_METHOD.getKey(), DigestMethod.SHA256.name());
 										
 										// Files to be signed
 										byte[] documentBinaryContent = IOUtils.toByteArray(getClass().getResourceAsStream("/exampleSign.pdf"));	
