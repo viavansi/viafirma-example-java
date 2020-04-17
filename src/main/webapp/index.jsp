@@ -88,7 +88,7 @@
 					Acceda a <a href="http://www.viafirma.com">Viafirma</a> o consulte más información técnica en <a href="https://doc.viafirma.com/viafirma-platform/integration/">Manual de integración de viafirma platform</a> 
 				</p>
 				<p>
-					<small>3.0.0</small>
+					<small>3.1.1</small>
 				</p>
 			</div>
 		</div>

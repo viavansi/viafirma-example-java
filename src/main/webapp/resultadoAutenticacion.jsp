@@ -32,6 +32,7 @@
 						<tr><th class="width-20"><strong>Oids</strong></th><td>${usuarioAutenticado.oids}</td></tr>
 						<tr><th class="width-20"><strong>Type Certificate</strong></th><td>${usuarioAutenticado.typeCertificate}</td></tr>
 						<tr><th class="width-20"><strong>Type Legal</strong></th><td>${usuarioAutenticado.typeLegal}</td></tr>
+						<tr><th class="width-20"><strong>PEM</strong></th><td>${usuarioAutenticado.properties["pem"]}</td></tr>
 					</tbody>
 				</table>
 				<%}%>
