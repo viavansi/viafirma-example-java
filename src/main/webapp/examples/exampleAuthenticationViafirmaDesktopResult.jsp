@@ -55,6 +55,9 @@
 						<tr><th class="width-20"><strong>Ca Name</strong></th><td><%=certificateValidationResponse.getCa() %></td></tr>
 						<tr><th class="width-20"><strong>Oids</strong></th><td><%=oidAsHtml %></td></tr>
 						<tr><th class="width-20"><strong>Type Certificate</strong></th><td><%=certificateValidationResponse.getType() %></td></tr>
+						<tr><th class="width-20"><strong>Validated OK?</strong></th><td><%=certificateValidationResponse.getIsValidated() %></td></tr>
+						<tr><th class="width-20"><strong>Expired?</strong></th><td><%=certificateValidationResponse.getIsExpired() %></td></tr>
+						<tr><th class="width-20"><strong>Revoked?</strong></th><td><%=certificateValidationResponse.getIsRevoked() %></td></tr>
 					</tbody>
 				</table>
 				<%}%>

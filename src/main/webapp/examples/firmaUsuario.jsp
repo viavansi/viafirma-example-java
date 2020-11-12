@@ -63,6 +63,7 @@
 										<li><a href="firmaUsuario/firmaDigitalizada06.jsp">Firma digitalizada sin puntero</a></li>
 										<li><a href="firmaUsuario/firmaDigitalizada07.jsp">Firma digitalizada sin localización</a></li>
 										<li><a href="firmaUsuario/firmaDigitalizada08.jsp">Firma digitalizada sin sellado de tiempo de firma digital</a></li>
+										<li><a href="exampleBiometricSignatureViafirmaDesktop.jsp" >Firma digitalizada avanzada invocando a Viafirma Desktop por protocolo</a></li>
 									</ul>
 								</div>
 							</div>
