@@ -1,3 +1,4 @@
+<%@page import="org.viafirma.cliente.util.OptionalRequest"%>
 <%@page import="org.viafirma.cliente.util.PolicyParams"%>
 <%@page import="org.viafirma.cliente.firma.Policy"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
