@@ -35,6 +35,7 @@
 							<div class="box-content">
 								<ul>
 									<li><a href="examples/exampleAuthenticationPolicy.jsp" >Autenticar al usuario</a></li>
+									<li><a href="examples/exampleAuthenticationPolicyAutoSend.jsp" >Autenticar al usuario con selección automática de certificado</a></li>
 								    <li><a href="exampleFilter/exampleAuthentication.jsp" >Autenticar al usuario controlado por filtro </a></li>
                                     <li><a href="examples/exampleAuthenticationViafirmaDesktop.jsp" >Autenticar al usuario invocando a Viafirma Desktop por protocolo</a></li>
                                     <li><a href="examples/exampleAuthenticationSSLClientAuth.jsp" >Autenticar al usuario sin cliente rico (SSL)</a></li>

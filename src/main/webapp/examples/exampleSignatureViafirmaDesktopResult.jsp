@@ -45,7 +45,8 @@
 				</p>
 				<%if(request.getAttribute("error")!=null ){%>
 					<p>${error}. Operación cancelada</p>
-				<%}else{ 			
+				<%}else{ 
+					if(signatureResponse.getCertificateValidationData() != null) {
 				%>
 					<table>
 						<tr><th class="width-20"><strong>First Name</strong> </th><td><%=signatureResponse.getCertificateValidationData().getName() %></td></tr>
@@ -55,7 +56,7 @@
 						<tr><th class="width-20"><strong>Ca Name</strong></th><td><%=signatureResponse.getCertificateValidationData().getCa() %></td></tr>
 						<tr><th class="width-20"><strong>Type Certificate</strong></th><td><%=signatureResponse.getCertificateValidationData().getType() %></td></tr>
 					</table>
-					
+				<%} %>	
 					
 					<p class="codBarras">
 						<img alt="Imagen QR de justificante del resultado de la firma del fichero" width="500" src="<%=ConfigureUtil.getViafirmaServer() %>/downloadComprobanteQR?codFirma=<%=id%>&amp;tipo=png" title="Imagen QR de justificante del resultado de la firma del fichero" />

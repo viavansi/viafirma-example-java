@@ -67,7 +67,7 @@
 									    //authRequest.setCaFilter(caFilter);
 									    //authRequest.setNumberUserIdFilter(numberUserIdFilter);
 
-									    authRequest.setAutoSend(false);
+									    authRequest.setAutoSend(true);
 									    authRequest.setSessionId(request.getSession().getId());
 									    
 									    // The method returns an object with the information required to:
