@@ -53,6 +53,7 @@
 									<li><a href="examples/firmaUsuario.jsp" >Firmar documento con intervención del usuario</a></li>
 									<li><a href="examples/firmaServer.jsp" >Firmar documento sin intervención del usuario</a></li>
 									<li><a href="examples/exampleSignatureViafirmaDesktop.jsp" >Firmar invocando a Viafirma Desktop por protocolo</a></li>
+									<li><a href="examples/exampleSignatureViafirmaDesktopLoop.jsp" >Firmar varios documentos en bucle invocando a Viafirma Desktop por protocolo</a></li>
 									<li><a href="examples/firmaPolicy.jsp" >Otros ejemplos de firmas</a></li>
 								</ul>
 							</div>

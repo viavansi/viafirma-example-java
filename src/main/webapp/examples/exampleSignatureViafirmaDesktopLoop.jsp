@@ -1,3 +1,5 @@
+<%@page import="org.viafirma.cliente.firma.DigestMethod"%>
+<%@page import="org.viafirma.cliente.firma.SignatureAlgorithm"%>
 <%@page import="org.viafirma.cliente.rest.desktop.direct.model.SignatureOperationRequest"%>
 <%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="org.apache.commons.io.IOUtils"%>
@@ -30,7 +32,7 @@
 			<h1 id="header"><a href=".."><img src="../images/content/logo.png" alt="Viafirma" /></a></h1>
 			
 			<div id="content">
-				<h2>Firmar usando llamada a Viafirma Desktop por protocolo (requiere Javascript)</h2>
+				<h2>Firmar varios documentos usando llamada a Viafirma Desktop por protocolo (requiere Javascript)</h2>
 				
 				<div class="group">
 					<div class="col width-63 append-02">
@@ -68,6 +70,9 @@
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_CONTACT.getKey(), "Contact Person Name");
 										policy.addParameter(PolicyParams.DIGITAL_SIGN_LOCATION.getKey(), "Tomares");
 										
+// 										policy.addParameter(PolicyParams.SIGNATURE_ALGORITHM.getKey(), SignatureAlgorithm.SHA256withRSA.name());
+// 										policy.addParameter(PolicyParams.DIGEST_METHOD.getKey(), DigestMethod.SHA256.name());
+										
 										// Files to be signed
 										byte[] documentBinaryContent = IOUtils.toByteArray(getClass().getResourceAsStream("/exampleSign.pdf"));	
 										List<OperationFile> files = new LinkedList<OperationFile>();
@@ -79,9 +84,10 @@
 										files.add(file);
 										
 										documentBinaryContent = IOUtils.toByteArray(getClass().getResourceAsStream("/exampleSigned.pdf"));
-										file = new OperationFile();
-										file.setFilename("exampleSigned.pdf");
-										file.setBase64Content(Base64.encodeBase64String(documentBinaryContent));
+										
+										OperationFile file2 = new OperationFile();
+										file2.setFilename("exampleSigned.pdf");
+										file2.setBase64Content(Base64.encodeBase64String(documentBinaryContent));
 										Policy policy2 = new Policy();
 										policy2.setTypeFormatSign(TypeFormatSign.PAdES_BASIC);
 										policy2.setTypeSign(TypeSign.ATTACHED);
@@ -91,9 +97,13 @@
 										policy2.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_TEXT.getKey(), "Firmado por [CN] con DNI [SERIALNUMBER]\ntrabajador de [O] en el departamento de [OU]");
 										policy2.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_TYPE.getKey(), "QR-BAR-H");
 										policy2.addParameter(PolicyParams.DIGITAL_SIGN_STAMPER_ROTATION_ANGLE.getKey(), "90");
-										file.setPolicy(policy2);
 										
-										files.add(file);
+// 										policy2.addParameter(PolicyParams.SIGNATURE_ALGORITHM.getKey(), SignatureAlgorithm.SHA256withRSA.name());
+// 										policy2.addParameter(PolicyParams.DIGEST_METHOD.getKey(), DigestMethod.SHA256.name());
+										
+										file2.setPolicy(policy2);
+										
+										files.add(file2);
 									    
 									    // The method returns an object with the information required to:
 									    // a) Create a button that opens Viafirma Desktop by protocol

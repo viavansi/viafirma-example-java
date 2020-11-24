@@ -38,8 +38,8 @@
 			<h2>Resultado del proceso de autenticación mediante SSL client
 				auth</h2>
 
-			<%if(request.getAttribute("error")!=null ){%>
-			<p class="message error">${error}.Operación cancelada</p>
+			<%if(request.getAttribute("error")!=null || request.getParameter("error") != null){%>
+			<p class="message error">${error}.Operación cancelada o no se ha encontrado ningún certificado!</p>
 			<%}else{
 					request.getSession().invalidate();
 					request.getSession(true);
